@@ -1,11 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Research Website</title>
+  <meta charset="UTF-8">
+  <title>Montgomery Group | Duquesne University</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 简单内联样式（后期可挪到 assets/css/style.css） -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    header {
+      background: #0b3c5d;
+      color: white;
+      padding: 20px 40px;
+    }
+
+    nav a {
+      color: white;
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      padding: 60px 40px;
+      background: #f4f6f8;
+    }
+
+    .hero h1 {
+      margin-top: 0;
+      font-size: 2.5em;
+    }
+
+    .section {
+      padding: 50px 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    .publication {
+      margin-bottom: 25px;
+    }
+
+    .publication a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .publication a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #f4f6f8;
+      padding: 30px 40px;
+      margin-top: 60px;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Website Demo</h1>
-  <p>This is the initial deployment.</p>
+
+  <!-- Header / Navigation -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="people.html">People</a>
+      <a href="projects.html">Projects</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Montgomery Group</h1>
+    <p>
+      Department of Chemistry and Biochemistry, Duquesne University
+    </p>
+  </div>
+
+  <!-- About Section -->
+  <div class="section">
+    <h2>About</h2>
+
+    <p>
+      Welcome to the website for the Montgomery Group, located in the Department
+      of Chemistry and Biochemistry at Duquesne University. As a research group,
+      we are passionate about exploring the intricacies of organic chemistry,
+      with a particular focus on developing innovative synthetic methods and
+      probing the theoretical underpinnings of chemical transformations.
+    </p>
+
+    <p>
+      Our research spans from the synthesis of novel heterocyclic compounds to
+      mechanistic investigations of complex reactions, with the goal of
+      advancing the field and providing new tools for chemists. We believe in a
+      collaborative and interdisciplinary approach, and we are always excited
+      to welcome new members to our team.
+    </p>
+  </div>
+
+  <!-- Recent Publications -->
+  <div class="section">
+    <h2>Recent Publications</h2>
+
+    <p>
+      For a complete list of publications, please visit
+      <a href="#" target="_blank">Google Scholar</a>.
+    </p>
+
+    <div class="publication">
+      <a href="#" target="_blank">
+        N-Oxide Insertion into LDA Dimeric Aggregates for Azomethine Ylide Formation:
+        Explicit Solvation in Quantum Mechanical Treatment of Polarized Intermediates
+      </a><br>
+      M. Neal, E. J. Chartier, A. M. Lane, S. L. Hejnosz, L. T. Jesikiewicz, P. Liu,
+      J. J. Rohde, P. Lummis, D. J. Fox, J. Evanseck, T. D. Montgomery<br>
+      <em>Journal of Organic Chemistry, 2025</em>
+    </div>
+
+    <div class="publication">
+      <a href="#" target="_blank">
+        Diastereoselective [3 + 2] Cycloaddition between Tertiary Amine N-Oxides
+        and Substituted Alkenes to Access 7-Azanorbornanes
+      </a><br>
+      A. H. Cocolas, A. M. Lane, B. S. Musiak, E. J. Chartier, D. A. Bedillion,
+      S. L. Hejnosz, P. Lummis, J. Evanseck, T. D. Montgomery<br>
+      <em>Organic Letters, 2024</em>
+    </div>
+
+    <p>
+      <a href="publications.html">View all publications →</a>
+    </p>
+  </div>
+
+  <!-- Contact (简化版，完整版放 people.html) -->
+  <div class="section">
+    <h2>Contact</h2>
+
+    <p>
+      <strong>Thomas D. Montgomery</strong><br>
+      Department of Chemistry and Biochemistry<br>
+      Duquesne University<br>
+      Pittsburgh, PA 15282<br>
+      <a href="mailto:montgomeryt1@duq.edu">montgomeryt1@duq.edu</a>
+    </p>
+  </div>
+
+  <footer>
+    © Montgomery Group, Duquesne University
+  </footer>
+
 </body>
 </html>
+
