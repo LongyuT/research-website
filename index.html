@@ -1,170 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Montgomery Group | Duquesne University</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 简单内联样式（后期可挪到 assets/css/style.css） -->
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #222;
-    }
+  <title>Montgomery Group</title>
+  <meta name="description" content="Montgomery Group — Department of Chemistry and Biochemistry at Duquesne University." />
 
-    header {
-      background: #0b3c5d;
-      color: white;
-      padding: 20px 40px;
-    }
+  <!-- Favicon (先用通用的，后面你也可以换成本地 assets/img/favicon.ico) -->
+  <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
 
-    nav a {
-      color: white;
-      margin-right: 20px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      padding: 60px 40px;
-      background: #f4f6f8;
-    }
-
-    .hero h1 {
-      margin-top: 0;
-      font-size: 2.5em;
-    }
-
-    .section {
-      padding: 50px 40px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 8px;
-    }
-
-    .publication {
-      margin-bottom: 25px;
-    }
-
-    .publication a {
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .publication a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background: #f4f6f8;
-      padding: 30px 40px;
-      margin-top: 60px;
-      font-size: 0.9em;
-    }
-  </style>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
 
-  <!-- Header / Navigation -->
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="publications.html">Publications</a>
-      <a href="people.html">People</a>
-      <a href="projects.html">Projects</a>
-    </nav>
+  <!-- Header / Hero -->
+  <header class="hero">
+    <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <!-- Top nav -->
+      <nav class="nav">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="publications.html">Publications</a>
+        <a class="nav-link" href="people.html">People</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="highlights.html">Highlights</a>
+      </nav>
+
+      <!-- Title + avatar -->
+      <div class="hero-title-row">
+        <div class="hero-avatar">
+          <img src="assets/img/avatar.jpg" alt="Group avatar" />
+        </div>
+        <div class="hero-title">
+          <h1>Montgomery Group</h1>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <div class="hero">
-    <h1>Montgomery Group</h1>
-    <p>
-      Department of Chemistry and Biochemistry, Duquesne University
-    </p>
-  </div>
+  <!-- Main -->
+  <main class="container">
 
-  <!-- About Section -->
-  <div class="section">
-    <h2>About</h2>
+    <!-- About -->
+    <section class="section">
+      <h2 class="section-title">About</h2>
+      <div class="divider"></div>
 
-    <p>
-      Welcome to the website for the Montgomery Group, located in the Department
-      of Chemistry and Biochemistry at Duquesne University. As a research group,
-      we are passionate about exploring the intricacies of organic chemistry,
-      with a particular focus on developing innovative synthetic methods and
-      probing the theoretical underpinnings of chemical transformations.
-    </p>
+      <div class="content">
+        <p>
+          Welcome to the website for the Montgomery Group, located in the Department of Chemistry and Biochemistry at Duquesne University.
+          As a research group, we are passionate about exploring the intricacies of organic chemistry, with a particular focus on developing
+          innovative synthetic methods and probing the theoretical underpinnings of these chemical transformations. Our work spans from the
+          synthesis of novel heterocyclic compounds to mechanistic investigations of complex reactions, all with the goal of advancing the field
+          and providing new tools for chemists.
+        </p>
 
-    <p>
-      Our research spans from the synthesis of novel heterocyclic compounds to
-      mechanistic investigations of complex reactions, with the goal of
-      advancing the field and providing new tools for chemists. We believe in a
-      collaborative and interdisciplinary approach, and we are always excited
-      to welcome new members to our team.
-    </p>
-  </div>
+        <p>
+          Our recent publications highlight our diverse interests, including cycloaddition reactions of tertiary amine N-oxides, the chemistry of
+          aza-BODIPYs, and mechanistic studies using computational methods. We believe in a collaborative and interdisciplinary approach, and we
+          are always excited to welcome new members to our team. Please explore our site to learn more about our research, our members, and
+          opportunities to join our group!
+        </p>
+      </div>
+    </section>
 
-  <!-- Recent Publications -->
-  <div class="section">
-    <h2>Recent Publications</h2>
+    <!-- Recent Publications -->
+    <section class="section" id="recent-publications">
+      <h2 class="section-title">Recent Publications</h2>
+      <div class="divider"></div>
 
-    <p>
-      For a complete list of publications, please visit
-      <a href="#" target="_blank">Google Scholar</a>.
-    </p>
+      <div class="pub-list">
 
-    <div class="publication">
-      <a href="#" target="_blank">
-        N-Oxide Insertion into LDA Dimeric Aggregates for Azomethine Ylide Formation:
-        Explicit Solvation in Quantum Mechanical Treatment of Polarized Intermediates
-      </a><br>
-      M. Neal, E. J. Chartier, A. M. Lane, S. L. Hejnosz, L. T. Jesikiewicz, P. Liu,
-      J. J. Rohde, P. Lummis, D. J. Fox, J. Evanseck, T. D. Montgomery<br>
-      <em>Journal of Organic Chemistry, 2025</em>
+        <article class="pub-item">
+          <h3 class="pub-title">
+            <a href="#" target="_blank" rel="noopener">N-Oxide Insertion into LDA Dimeric Aggregates for Azomethine Ylide Formation: Explicit Solvation in Quantum Mechanical Treatment of Polarized Intermediates</a>
+          </h3>
+          <p class="pub-authors">
+            M. Neal, Eric J. Chartier, Aiden M Lane, Sarah L Hejnosz, Luke T. Jesikiewicz, Peng Liu, Jeffrey J. Rohde, P. Lummis, Douglas J. Fox, J. Evanseck, Thomas D. Montgomery
+          </p>
+          <p class="pub-venue">Journal of Organic Chemistry, 2025</p>
+        </article>
+
+        <article class="pub-item">
+          <h3 class="pub-title">
+            <a href="#" target="_blank" rel="noopener">Diastereoselective [3 + 2] Cycloaddition between Tertiary Amine N-Oxides and Substituted Alkenes to Access 7-Azanorbornanes</a>
+          </h3>
+          <p class="pub-authors">
+            Alexander H Cocolas, Aiden M Lane, Benjamin S Musiak, Eric J. Chartier, Derek A Bedillion, Sarah L Hejnosz, P. Lummis, J. Evanseck, Thomas D. Montgomery
+          </p>
+          <p class="pub-venue">Organic Letters, 2024</p>
+        </article>
+
+        <article class="pub-item">
+          <h3 class="pub-title">
+            <a href="#" target="_blank" rel="noopener">[3 + 2] Cycloadditions of Tertiary Amine N-Oxides and Silyl Imines as an Innovative Route to 1,2-Diamines</a>
+          </h3>
+          <p class="pub-authors">
+            Sarah L Hejnosz, Danielle R. Beres, Alexander H Cocolas, M. Neal, Benjamin S Musiak, Marianne M B Hanna, A. Bloomfield, Thomas D. Montgomery
+          </p>
+          <p class="pub-venue">Organic Letters, 2023</p>
+        </article>
+
+        <article class="pub-item">
+          <h3 class="pub-title">
+            <a href="#" target="_blank" rel="noopener">Synthetic Exploration of Bis(phenolate) Aza-BODIPYs and Heavier Group 13 Chelates</a>
+          </h3>
+          <p class="pub-authors">
+            Aiden M Lane, Ny T. C. Luong, Jordan C. Kelly, M. Neal, Jeremiah Jamrom, A. Bloomfield, P. Lummis, Thomas D. Montgomery, Daniel T Chase
+          </p>
+          <p class="pub-venue">Molecules, 2022</p>
+        </article>
+
+        <article class="pub-item">
+          <h3 class="pub-title">
+            <a href="#" target="_blank" rel="noopener">Synthesis and Photophysical Properties of Nitrated aza-BODIPYs</a>
+          </h3>
+          <p class="pub-authors">
+            Samuel R Zarcone, Hana J Yarbrough, M. Neal, Jordan C. Kelly, Katie Kaczynski, A. Bloomfield, G. Bowers, Thomas D. Montgomery, Daniel T Chase
+          </p>
+          <p class="pub-venue">New Journal of Chemistry, 2022</p>
+        </article>
+
+      </div>
+
+      <a class="btn" href="publications.html">View all</a>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="divider"></div>
+
+      <div class="contact-grid">
+        <div class="contact-photo">
+          <img src="assets/img/contact.jpg" alt="Thomas Montgomery" />
+        </div>
+
+        <div class="contact-main">
+          <h3 class="contact-name">Thomas Montgomery</h3>
+          <p class="muted">Contact description</p>
+
+          <!-- 你可以先写明文邮箱，不用 cloudflare decode -->
+          <p class="contact-line">
+            <a href="mailto:montgomeryt1@duq.edu">montgomeryt1@duq.edu</a>
+          </p>
+
+          <p class="contact-line">
+            <a target="_blank" rel="noopener" href="https://www.duq.edu/academics/colleges-and-schools/science-and-engineering/academics/departments-and-programs/chemistry-and-biochemistry/index.php">
+              Department of Chemistry and Biochemistry
+            </a><br />
+            <a target="_blank" rel="noopener" href="https://www.duq.edu/">Duquesne University</a><br />
+            600 Forbes Avenue<br />
+            Pittsburgh, PA 15282
+          </p>
+        </div>
+
+        <div class="contact-side">
+          <p class="contact-link">
+            <a href="cv.html">Curriculum vitae</a>
+          </p>
+
+          <p class="contact-link">
+            <a target="_blank" rel="noopener" href="https://orcid.org/0000-0002-6526-8564">ORCID</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-row">
+        <div class="footer-copy">&copy; 2026 Montgomery Group</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
     </div>
-
-    <div class="publication">
-      <a href="#" target="_blank">
-        Diastereoselective [3 + 2] Cycloaddition between Tertiary Amine N-Oxides
-        and Substituted Alkenes to Access 7-Azanorbornanes
-      </a><br>
-      A. H. Cocolas, A. M. Lane, B. S. Musiak, E. J. Chartier, D. A. Bedillion,
-      S. L. Hejnosz, P. Lummis, J. Evanseck, T. D. Montgomery<br>
-      <em>Organic Letters, 2024</em>
-    </div>
-
-    <p>
-      <a href="publications.html">View all publications →</a>
-    </p>
-  </div>
-
-  <!-- Contact (简化版，完整版放 people.html) -->
-  <div class="section">
-    <h2>Contact</h2>
-
-    <p>
-      <strong>Thomas D. Montgomery</strong><br>
-      Department of Chemistry and Biochemistry<br>
-      Duquesne University<br>
-      Pittsburgh, PA 15282<br>
-      <a href="mailto:montgomeryt1@duq.edu">montgomeryt1@duq.edu</a>
-    </p>
-  </div>
-
-  <footer>
-    © Montgomery Group, Duquesne University
   </footer>
 
 </body>
