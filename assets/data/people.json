@@ -1,0 +1,23 @@
+[
+  {
+    "id": "montgomery",
+    "name": "Thomas Montgomery",
+    "role": "PI",
+    "photo": "assets/img/people/thomas.jpg",
+    "bio": "Thomas grew up in the northern DC suburbs before earning his bachelors degree in chemistry and biology from St. Mary's College of Maryland..."
+  },
+  {
+    "id": "aiden-lane",
+    "name": "Aiden Lane",
+    "role": "Graduate Student (Ph.D.)",
+    "photo": "assets/img/people/placeholder.png",
+    "bio": ""
+  },
+  {
+    "id": "nick-frankos",
+    "name": "Nick Frankos",
+    "role": "Graduate Student (Ph.D.)",
+    "photo": "assets/img/people/placeholder.png",
+    "bio": ""
+  }
+]
