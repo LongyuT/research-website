@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Montgomery Group - Person</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- 复用同一套 Hero -->
+  <header class="hero">
+    <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="publications.html">Publications</a>
+        <a class="nav-link active" href="people.html">People</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="highlights.html">Highlights</a>
+      </nav>
+
+      <div class="hero-title-row">
+        <div class="hero-avatar">
+          <img src="assets/img/avatar.jpg" alt="Group avatar" />
+        </div>
+        <div class="hero-title">
+          <h1>Montgomery Group</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <a href="people.html">← Back to People</a>
+      <div class="divider"></div>
+
+      <div id="person-detail"></div>
+    </section>
+  </main>
+
+  <script>
+    async function main(){
+      const id = new URLSearchParams(location.search).get('id');
+      const box = document.getElementById('person-detail');
+
+      if(!id){
+        box.innerHTML = '<h2>Person not found (missing id).</h2>';
+        return;
+      }
+
+      const res = await fetch('assets/data/people.json');
+      const people = await res.json();
+      const p = people.find(x => String(x.id) === String(id));
+
+      if(!p){
+        box.innerHTML = '<h2>Person not found (invalid id).</h2>';
+        return;
+      }
+
+      box.innerHTML = `
+        <div class="person-detail">
+          <div class="person-detail-photo">
+            <img src="${p.photo || 'assets/img/people/placeholder.png'}" alt="${p.name}">
+          </div>
+          <div class="person-detail-main">
+            <h2 style="margin-top:0;">${p.name}</h2>
+            <div class="person-role" style="margin-bottom:12px;">${p.role || ''}</div>
+            <p>${p.bio || '—'}</p>
+          </div>
+        </div>
+      `;
+    }
+    main();
+  </script>
+</body>
+</html>
 
