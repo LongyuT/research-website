@@ -1,0 +1,22 @@
+[
+  {
+    "id": "52940-diastereoselective-3-2-cycloaddition",
+    "type": "Journal article",
+    "title": "Diastereoselective [3 + 2] Cycloaddition between Tertiary Amine N-Oxides and Substituted Alkenes to Access 7-Azanorbornanes",
+    "authors": "Alexander H Cocolas, Aiden M Lane, Benjamin S Musiak, Eric J. Chartier, Derek A Bedillion, Sarah L Hejnosz, P. Lummis, J. Evanseck, Thomas D. Montgomery",
+    "venue": "Organic Letters",
+    "year": 2024,
+    "abstract": "We have developed a diastereoselective synthesis of 43 novel 7-azanorbornanes ...",
+    "links": {
+      "semantic_scholar": "https://www.semanticscholar.org/",
+      "doi": "https://doi.org/10.xxxx/xxxxx",
+      "pubmedcentral": "",
+      "pubmed": "",
+      "pdf": ""
+    },
+    "cite": {
+      "apa": "Cocolas, A. H., Lane, A. M., ... Montgomery, T. D. (2024). Diastereoselective ... Organic Letters.",
+      "bibtex": "@article{cocolas2024...,\n  title={...},\n  journal={Organic Letters},\n  year={2024}\n}"
+    }
+  }
+]
