@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Montgomery Group - Project</title>
+  <meta name="description" content="Montgomery Group — Project detail." />
+
+  <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="publications.html">Publications</a>
+        <a class="nav-link" href="people.html">People</a>
+        <a class="nav-link active" href="projects.html">Projects</a>
+        <a class="nav-link" href="highlights.html">Highlights</a>
+      </nav>
+
+      <div class="hero-title-row">
+        <div class="hero-avatar">
+          <img src="assets/img/avatar.jpg" alt="Group avatar" />
+        </div>
+        <div class="hero-title">
+          <h1>Montgomery Group</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <a class="back-link" href="projects.html">← Back to Projects</a>
+
+      <div id="projError" class="error-box" style="display:none;"></div>
+
+      <div id="projWrap" style="display:none;">
+        <h2 id="projTitle" class="pub-detail-title"></h2>
+
+        <div class="project-detail">
+          <div class="project-detail-img">
+            <img id="projImg" src="" alt="">
+          </div>
+
+          <div>
+            <div id="projLinks" class="pub-buttons"></div>
+
+            <div class="divider"></div>
+            <h3 class="pub-subhead">Description</h3>
+            <div id="projBody" class="content"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-row">
+        <div class="footer-copy">&copy; 2026 Montgomery Group</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/project-page.js"></script>
+
+  <style>
+    .back-link{
+      display:inline-block;
+      margin: 8px 0 18px;
+      color: var(--link);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .error-box{
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff7f7;
+      color: #8a1f1f;
+      margin-bottom: 14px;
+    }
+    .project-detail{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+      align-items:start;
+      margin-top: 14px;
+    }
+    .project-detail-img img{
+      width:100%;
+      display:block;
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+      background:#f1f1f1;
+    }
+    @media (max-width: 900px){
+      .project-detail{ grid-template-columns: 1fr; }
+    }
+  </style>
+
+</body>
+</html>
