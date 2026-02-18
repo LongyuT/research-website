@@ -12,79 +12,13 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
-    /* People grid (不破坏你原来的 style.css，只做补充) */
-    .people-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    @media (max-width: 900px){
-      .people-grid{ grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 520px){
-      .people-grid{ grid-template-columns: 1fr; }
-    }
-
+    /* 只做极少量补充：让整块可点，但不改变你 style.css 的排版 */
     .person-card{
-      display:block;
-      text-decoration:none;
+      text-decoration: none;
       color: inherit;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      overflow:hidden;
-      background:#fff;
-      box-shadow: 0 10px 25px rgba(0,0,0,.06);
-      transition: transform .12s ease, box-shadow .12s ease;
     }
-    .person-card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0,0,0,.10);
-    }
-
-    .person-photo{
-      width:100%;
-      aspect-ratio: 4 / 3;
-      background:#f1f1f1;
-      overflow:hidden;
-    }
-    .person-photo img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-    }
-
-    .person-body{
-      padding: 14px 14px 16px;
-    }
-
     .person-name{
-      margin: 0 0 4px;
-      font-size: 18px;
-      font-weight: 800;
       color: var(--link);
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 2px;
-    }
-    .person-role{
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .person-bio{
-      margin: 0;
-      font-size: 13px;
-      color: var(--text);
-      line-height: 1.55;
-    }
-    .error-box{
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #fff7f7;
-      color: #8a1f1f;
     }
   </style>
 </head>
@@ -138,9 +72,7 @@
   </footer>
 
   <script>
-    function safeText(s){
-      return (s ?? "").toString();
-    }
+    function safeText(s){ return (s ?? "").toString(); }
 
     function truncate(s, n){
       s = safeText(s).trim();
@@ -159,10 +91,11 @@
       grid.innerHTML = "";
 
       try{
+        // ✅ 确保 people.json 放在这个路径：assets/data/people.json
         const res = await fetch('assets/data/people.json', { cache: 'no-store' });
         if(!res.ok) throw new Error("people.json 读取失败：" + res.status);
-        const people = await res.json();
 
+        const people = await res.json();
         if(!Array.isArray(people) || people.length === 0){
           showError("没有找到人员数据（assets/data/people.json 为空或格式不对）。");
           return;
@@ -172,27 +105,28 @@
           const id = safeText(p.id).trim();
           if(!id) continue;
 
-          const a = document.createElement('a');
-          a.className = 'person-card';
-          a.href = 'person.html?id=' + encodeURIComponent(id);
+          const name = safeText(p.name) || "Unnamed";
+          const role = safeText(p.role) || "";
+          const photoUrl = safeText(p.photo) || "assets/img/people/placeholder.png";
+          const bio = truncate(p.short_bio || p.bio || "", 260);
 
-          const photoUrl = safeText(p.photo) || 'assets/img/avatar.jpg';
-          const name = safeText(p.name) || 'Unnamed';
-          const role = safeText(p.role) || '';
-          const bio = truncate(p.short_bio || p.bio || '', 210);
+          // 用你 style.css 的 People layout：图 + 右侧文字
+          const card = document.createElement('a');
+          card.className = 'person-card';
+          card.href = 'person.html?id=' + encodeURIComponent(id);
 
-          a.innerHTML = `
+          card.innerHTML = `
             <div class="person-photo">
               <img src="${photoUrl}" alt="${name}" loading="lazy" />
             </div>
-            <div class="person-body">
+            <div>
               <div class="person-name">${name}</div>
               ${role ? `<div class="person-role">${role}</div>` : ``}
               ${bio ? `<p class="person-bio">${bio}</p>` : ``}
             </div>
           `;
 
-          grid.appendChild(a);
+          grid.appendChild(card);
         }
 
       }catch(e){
@@ -202,6 +136,18 @@
 
     loadPeople();
   </script>
+
+  <style>
+    /* error box 你之前写在 people.html 里了，我保留一个同样效果，避免找不到类 */
+    .error-box{
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff7f7;
+      color: #8a1f1f;
+      margin-bottom: 14px;
+    }
+  </style>
 
 </body>
 </html>
