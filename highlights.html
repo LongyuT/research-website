@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Montgomery Group - Highlights</title>
+  <meta name="description" content="Montgomery Group — Highlights." />
+
+  <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- Header / Hero -->
+  <header class="hero">
+    <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="publications.html">Publications</a>
+        <a class="nav-link" href="people.html">People</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link active" href="highlights.html">Highlights</a>
+      </nav>
+
+      <div class="hero-title-row">
+        <div class="hero-avatar">
+          <img src="assets/img/avatar.jpg" alt="Group avatar" />
+        </div>
+        <div class="hero-title">
+          <h1>Montgomery Group</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2 class="section-title">Highlights</h2>
+      <div class="divider"></div>
+
+      <div id="hlError" class="error-box" style="display:none;"></div>
+
+      <!-- 你截图里就是一条居中文本，所以我用一个很干净的 list 容器 -->
+      <div id="hlList" class="highlights-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-row">
+        <div class="footer-copy">&copy; 2026 Montgomery Group</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showError(msg){
+      const el = document.getElementById("hlError");
+      el.style.display = "block";
+      el.textContent = msg;
+    }
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    async function loadHighlights(){
+      const list = document.getElementById("hlList");
+      list.innerHTML = "";
+
+      try{
+        const res = await fetch("assets/data/highlights.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("highlights.json 读取失败：" + res.status);
+        const items = await res.json();
+
+        if(!Array.isArray(items) || items.length === 0){
+          // 没数据就不报错，显示空态
+          list.innerHTML = "<div class='muted' style='text-align:center;'>No highlights yet.</div>";
+          return;
+        }
+
+        // 按日期倒序（date = YYYY-MM-DD），没有 date 就放后面
+        items.sort((a,b) => {
+          const da = (a.date || "").trim();
+          const db = (b.date || "").trim();
+          if(!da && !db) return 0;
+          if(!da) return 1;
+          if(!db) return -1;
+          return db.localeCompare(da);
+        });
+
+        items.forEach(h => {
+          const text = (h.text || "").trim();
+          if(!text) return;
+
+          const row = document.createElement("div");
+          row.className = "highlight-item";
+
+          // 如果有 link，就做成蓝色链接
+          if(h.link){
+            row.innerHTML = `<a class="highlight-link" href="${escapeHtml(h.link)}" target="_blank" rel="noopener">${escapeHtml(text)}</a>`;
+          }else{
+            row.innerHTML = `<div class="highlight-text">${escapeHtml(text)}</div>`;
+          }
+
+          list.appendChild(row);
+        });
+
+      }catch(e){
+        showError("加载 Highlights 页面失败： " + e.message);
+      }
+    }
+
+    loadHighlights();
+  </script>
+
+  <style>
+    /* 只补充 highlights 的最小样式，确保和截图那种居中、干净的感觉一致 */
+    .error-box{
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff7f7;
+      color: #8a1f1f;
+      margin-bottom: 14px;
+    }
+    .highlights-list{
+      display:flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-top: 4px;
+    }
+    .highlight-item{
+      text-align: center;
+      font-size: 12px; /* 你截图里很小 */
+      color: var(--text);
+    }
+    .highlight-link{
+      color: var(--link);
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .highlight-text{
+      color: var(--text);
+    }
+  </style>
+
+</body>
+</html>
