@@ -4,13 +4,24 @@
     "name": "Thomas Montgomery",
     "role": "PI",
     "photo": "assets/img/people/thomas.jpg",
-    "bio": "Thomas grew up in the northern DC suburbs before earning his bachelors degree in chemistry and biology from St. Mary's College of Maryland..."
+    "email": "montgomeryt1@duq.edu",
+    "links": {
+      "orcid": "https://orcid.org/0000-0002-6526-8564",
+      "cv": "cv.html",
+      "website": "",
+      "scholar": ""
+    },
+    "short_bio": "Thomas grew up in the northern DC suburbs before earning his bachelors degree in chemistry and biology from St. Mary's College of Maryland...",
+    "bio": "Thomas grew up in the northern DC suburbs before earning his bachelors degree in chemistry and biology from St. Mary's College of Maryland. He then joined the Department of Chemistry at the University of Chicago where he earned his Ph.D. in 2015 under the mentorship of Prof. Viresh Rawal. Next he completed a post-doctoral fellowship with Prof. Amos B. Smith III at the University of Pennsylvania before joining the Department of Chemistry and Biochemistry at Duquesne University in 2018."
   },
   {
     "id": "aiden-lane",
     "name": "Aiden Lane",
     "role": "Graduate Student (Ph.D.)",
     "photo": "assets/img/people/placeholder.png",
+    "email": "",
+    "links": {},
+    "short_bio": "",
     "bio": ""
   },
   {
@@ -18,6 +29,9 @@
     "name": "Nick Frankos",
     "role": "Graduate Student (Ph.D.)",
     "photo": "assets/img/people/placeholder.png",
+    "email": "",
+    "links": {},
+    "short_bio": "",
     "bio": ""
   }
 ]
