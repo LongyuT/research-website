@@ -19,7 +19,6 @@
       text-decoration: underline;
       font-weight: 600;
     }
-
     .profile{
       display:grid;
       grid-template-columns: 260px 1fr;
@@ -29,11 +28,8 @@
     @media (max-width: 820px){
       .profile{ grid-template-columns: 1fr; }
     }
-
     .profile-photo{
       width:100%;
-      border-radius: 14px;
-      overflow:hidden;
       background:#f1f1f1;
       box-shadow: 0 12px 28px rgba(0,0,0,.10);
     }
@@ -42,7 +38,6 @@
       display:block;
       object-fit: cover;
     }
-
     .profile-name{
       margin:0;
       font-size: 34px;
@@ -54,7 +49,6 @@
       color: var(--muted);
       font-weight: 700;
     }
-
     .pill-row{
       display:flex;
       flex-wrap: wrap;
@@ -73,12 +67,10 @@
       font-weight: 700;
     }
     .pill:hover{ background:#fafafa; }
-
     .bio{
       margin: 0;
       white-space: pre-line;
     }
-
     .error-box{
       padding: 14px;
       border: 1px solid var(--line);
@@ -91,7 +83,6 @@
 
 <body>
 
-  <!-- Header / Hero -->
   <header class="hero">
     <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
     <div class="hero-overlay"></div>
@@ -156,9 +147,7 @@
   </footer>
 
   <script>
-    function safeText(s){
-      return (s ?? "").toString();
-    }
+    function safeText(s){ return (s ?? "").toString(); }
 
     function showError(msg){
       const box = document.getElementById('personError');
@@ -166,84 +155,22 @@
       box.textContent = msg;
     }
 
-    function buildLink(label, href){
+    function pill(label, href){
       if(!href) return null;
       const a = document.createElement('a');
       a.className = 'pill';
-      a.target = '_blank';
-      a.rel = 'noopener';
       a.href = href;
       a.textContent = label;
+      if(/^https?:\/\//i.test(href)){
+        a.target = '_blank';
+        a.rel = 'noopener';
+      }
       return a;
     }
 
     async function loadPerson(){
       const params = new URLSearchParams(location.search);
       const id = (params.get('id') || '').trim();
-
       if(!id){
-        showError("Person not found (missing id). 你需要用 person.html?id=xxx 访问。");
+        showError("Person not found (missing id). Use person.html?id=xxx");
         return;
-      }
-
-      try{
-        const res = await fetch('assets/data/people.json', { cache: 'no-store' });
-        if(!res.ok) throw new Error("people.json 读取失败：" + res.status);
-        const people = await res.json();
-
-        const person = Array.isArray(people) ? people.find(p => safeText(p.id).trim() === id) : null;
-        if(!person){
-          showError("Person not found: " + id);
-          return;
-        }
-
-        // 填充内容
-        document.title = `Montgomery Group - ${safeText(person.name) || 'Person'}`;
-
-        const name = safeText(person.name) || 'Unnamed';
-        const role = safeText(person.role) || '';
-        const photo = safeText(person.photo) || 'assets/img/avatar.jpg';
-        const bio = safeText(person.bio || person.short_bio || '');
-
-        document.getElementById('personName').textContent = name;
-        document.getElementById('personRole').textContent = role;
-
-        const img = document.getElementById('personPhoto');
-        img.src = photo;
-        img.alt = name;
-
-        document.getElementById('personBio').textContent = bio || "—";
-
-        // links
-        const linksWrap = document.getElementById('personLinks');
-        linksWrap.innerHTML = "";
-
-        const links = person.links || {};
-        const email = safeText(person.email);
-        if(email){
-          const a = document.createElement('a');
-          a.className = 'pill';
-          a.href = 'mailto:' + email;
-          a.textContent = 'Email';
-          linksWrap.appendChild(a);
-        }
-
-        const l1 = buildLink('Website', links.website);
-        const l2 = buildLink('Google Scholar', links.scholar);
-        const l3 = buildLink('ORCID', links.orcid);
-        const l4 = buildLink('CV', links.cv);
-
-        [l1,l2,l3,l4].forEach(x => { if(x) linksWrap.appendChild(x); });
-
-        document.getElementById('personWrap').style.display = 'block';
-
-      }catch(e){
-        showError("加载 Person 页面失败： " + e.message);
-      }
-    }
-
-    loadPerson();
-  </script>
-
-</body>
-</html>
