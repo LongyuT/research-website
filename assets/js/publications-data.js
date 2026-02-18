@@ -1,5 +1,4 @@
 // assets/js/publications-data.js
-// Data source: PMC / MDPI / RSC pages (Semantic Scholar blocks bots with 403)
 
 window.PUBLICATIONS = [
   {
@@ -19,6 +18,7 @@ window.PUBLICATIONS = [
       doi: "https://doi.org/10.1021/acs.joc.4c03090",
       pubmed: "https://pubmed.ncbi.nlm.nih.gov/40083234/",
       pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11915385/",
+      pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11915385/"
     },
   },
 
@@ -39,6 +39,7 @@ window.PUBLICATIONS = [
       doi: "https://doi.org/10.1021/acs.orglett.4c02013",
       pubmed: "https://pubmed.ncbi.nlm.nih.gov/39038111/",
       pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11320637/",
+      pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11320637/"
     },
   },
 
@@ -59,6 +60,7 @@ window.PUBLICATIONS = [
       doi: "https://doi.org/10.1021/acs.orglett.3c01396",
       pubmed: "https://pubmed.ncbi.nlm.nih.gov/37318514/",
       pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10325142/",
+      pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10325142/"
     },
   },
 
@@ -77,7 +79,7 @@ window.PUBLICATIONS = [
       semantic_scholar:
         "https://www.semanticscholar.org/paper/Synthetic-Exploration-of-Bis(phenolate)-Aza-BODIPYs-Lane-Luong/daf75449a056ddd409fa6e9a1911e890339d0646",
       doi: "https://doi.org/10.3390/molecules27238256",
-      mdpi: "https://www.mdpi.com/1420-3049/27/23/8256",
+      mdpi: "https://www.mdpi.com/1420-3049/27/23/8256"
     },
   },
 
@@ -95,7 +97,7 @@ window.PUBLICATIONS = [
       semantic_scholar:
         "https://www.semanticscholar.org/paper/Synthesis-and-Photophysical-Properties-of-Nitrated-Zarcone-Yarbrough/532f6e91c44f465f2763cb7d49243643325926f8",
       doi: "https://doi.org/10.1039/D1NJ05976A",
-      rsc: "https://pubs.rsc.org/en/content/articlelanding/2022/nj/d1nj05976a",
+      rsc: "https://pubs.rsc.org/en/content/articlelanding/2022/nj/d1nj05976a"
     },
   },
 ];
