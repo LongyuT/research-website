@@ -174,3 +174,64 @@
       if(!id){
         showError("Person not found (missing id). Use person.html?id=xxx");
         return;
+      }
+
+      try{
+        const res = await fetch('assets/data/people.json', { cache: 'no-store' });
+        if(!res.ok) throw new Error("people.json 读取失败：" + res.status);
+
+        const people = await res.json();
+        const person = Array.isArray(people) ? people.find(p => safeText(p.id).trim() === id) : null;
+        if(!person){
+          showError("Person not found: " + id);
+          return;
+        }
+
+        const name = safeText(person.name) || 'Unnamed';
+        const role = safeText(person.role) || '';
+        const photo = safeText(person.photo) || 'assets/img/people/placeholder.png';
+        const bio = safeText(person.bio || person.short_bio || '') || "—";
+
+        document.title = `Montgomery Group - ${name}`;
+
+        document.getElementById('personName').textContent = name;
+        document.getElementById('personRole').textContent = role;
+
+        const img = document.getElementById('personPhoto');
+        img.src = photo;
+        img.alt = name;
+
+        document.getElementById('personBio').textContent = bio;
+
+        // links
+        const linksWrap = document.getElementById('personLinks');
+        linksWrap.innerHTML = "";
+
+        const email = safeText(person.email).trim();
+        if(email){
+          const a = pill("Email", "mailto:" + email);
+          if(a) linksWrap.appendChild(a);
+        }
+
+        const links = person.links || {};
+        ["Website","Google Scholar","ORCID","CV"].forEach(()=>{});
+
+        const a1 = pill("Website", links.website);
+        const a2 = pill("Google Scholar", links.scholar);
+        const a3 = pill("ORCID", links.orcid);
+        const a4 = pill("CV", links.cv);
+
+        [a1,a2,a3,a4].forEach(x => { if(x) linksWrap.appendChild(x); });
+
+        document.getElementById('personWrap').style.display = 'block';
+
+      }catch(e){
+        showError("加载 Person 页面失败： " + e.message);
+      }
+    }
+
+    loadPerson();
+  </script>
+
+</body>
+</html>
