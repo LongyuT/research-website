@@ -1,0 +1,26 @@
+[
+  {
+    "id": "n-heterocycles-3-2",
+    "title": "Synthesis of N-Heterocycles using [3+2] Cycloaddition Reactions",
+    "summary": "Our lab is interested in the creation of new methods for synthesizing N-heterocycles using cycloadditions starting from tertiary amine N-oxides.",
+    "description": "Our lab is interested in the creation of new methods for synthesizing N-heterocycles using cycloadditions starting from tertiary amine N-oxides.\n\nWe develop new reaction pathways and study selectivity and scope. We also connect experimental results with mechanistic models where possible.",
+    "image": "assets/img/projects/project1.png",
+    "external_url": ""
+  },
+  {
+    "id": "computational-mechanisms",
+    "title": "Using Computational Methods to Probe Chemical Mechanisms",
+    "summary": "How reactions occur can offer significant insight into the capabilities and limitations of a given chemical method. We make use of a combination of experimental observations and density functional theory computations to elucidate chemical mechanisms.",
+    "description": "How reactions occur can offer significant insight into the capabilities and limitations of a given chemical method.\n\nWe make use of a combination of experimental observations and density functional theory computations to elucidate chemical mechanisms.",
+    "image": "assets/img/projects/project2.png",
+    "external_url": ""
+  },
+  {
+    "id": "photophysical-materials",
+    "title": "Generation of Photophysical Materials",
+    "summary": "Aza-dipyrromethenes (aza-DIPYs) are a class of chemical dyes that display strong absorption and emission profiles in the visible and near-IR region of the electromagnetic spectrum.",
+    "description": "Aza-dipyrromethenes (aza-DIPYs) are a class of chemical dyes that display strong absorption and emission profiles in the visible and near-IR region of the electromagnetic spectrum.\n\nWe design, synthesize, and characterize these dyes for improved stability and tunable optical properties.",
+    "image": "assets/img/projects/project3.png",
+    "external_url": ""
+  }
+]
