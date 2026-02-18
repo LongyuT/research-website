@@ -13,13 +13,13 @@
 </head>
 
 <body>
+
   <!-- Header / Hero -->
   <header class="hero">
     <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
-      <!-- Top nav -->
       <nav class="nav">
         <a class="nav-link active" href="index.html">Home</a>
         <a class="nav-link" href="publications.html">Publications</a>
@@ -28,7 +28,6 @@
         <a class="nav-link" href="highlights.html">Highlights</a>
       </nav>
 
-      <!-- Title + avatar -->
       <div class="hero-title-row">
         <div class="hero-avatar">
           <img src="assets/img/avatar.jpg" alt="Group avatar" />
@@ -40,8 +39,8 @@
     </div>
   </header>
 
-  <!-- Main -->
   <main class="container">
+
     <!-- About -->
     <section class="section">
       <h2 class="section-title">About</h2>
@@ -65,14 +64,12 @@
       </div>
     </section>
 
-    <!-- Recent Publications (auto-render) -->
+    <!-- Recent Publications -->
     <section class="section" id="recent-publications">
       <h2 class="section-title">Recent Publications</h2>
       <div class="divider"></div>
 
-      <div class="pub-list" id="pub-list">
-        <!-- JS will render first 5 items here -->
-      </div>
+      <div class="pub-list" id="recent-pub-list"></div>
 
       <a class="btn" href="publications.html">View all</a>
     </section>
@@ -110,16 +107,15 @@
           <p class="contact-link">
             <a href="cv.html">Curriculum vitae</a>
           </p>
-
           <p class="contact-link">
             <a target="_blank" rel="noopener" href="https://orcid.org/0000-0002-6526-8564">ORCID</a>
           </p>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-row">
@@ -131,34 +127,37 @@
     </div>
   </footer>
 
-  <!-- Data + render -->
+  <!-- DATA + RENDER -->
   <script src="assets/js/publications-data.js"></script>
   <script>
     (function () {
-      var listEl = document.getElementById("pub-list");
+      var listEl = document.getElementById("recent-pub-list");
       if (!listEl) return;
 
-      var pubs = (window.PUBLICATIONS || []).slice(0, 5);
-
-      function make(tag, className, text) {
-        var el = document.createElement(tag);
-        if (className) el.className = className;
-        if (text !== undefined && text !== null) el.textContent = text;
-        return el;
-      }
+      var pubs = (window.PUBLICATIONS || []).slice().sort(function(a,b){
+        return (b.year||0) - (a.year||0);
+      }).slice(0, 5);
 
       pubs.forEach(function (p) {
-        var item = make("article", "pub-item");
+        var item = document.createElement("article");
+        item.className = "pub-item";
 
-        var h3 = make("h3", "pub-title");
+        var h3 = document.createElement("h3");
+        h3.className = "pub-title";
+
         var a = document.createElement("a");
         a.href = "publication.html?slug=" + encodeURIComponent(p.slug);
-        a.rel = "noopener";
         a.textContent = p.title;
+
         h3.appendChild(a);
 
-        var authors = make("p", "pub-authors", p.authors);
-        var venue = make("p", "pub-venue", p.venue);
+        var authors = document.createElement("p");
+        authors.className = "pub-authors";
+        authors.textContent = p.authors || "";
+
+        var venue = document.createElement("p");
+        venue.className = "pub-venue";
+        venue.textContent = p.venue || "";
 
         item.appendChild(h3);
         item.appendChild(authors);
@@ -167,6 +166,7 @@
       });
     })();
   </script>
+
 </body>
 </html>
 
