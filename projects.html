@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Montgomery Group - Projects</title>
+  <meta name="description" content="Montgomery Group — Projects." />
+
+  <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <!-- Header / Hero -->
+  <header class="hero">
+    <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="publications.html">Publications</a>
+        <a class="nav-link" href="people.html">People</a>
+        <a class="nav-link active" href="projects.html">Projects</a>
+        <a class="nav-link" href="highlights.html">Highlights</a>
+      </nav>
+
+      <div class="hero-title-row">
+        <div class="hero-avatar">
+          <img src="assets/img/avatar.jpg" alt="Group avatar" />
+        </div>
+        <div class="hero-title">
+          <h1>Montgomery Group</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2 class="section-title">Projects</h2>
+      <div class="divider"></div>
+
+      <div id="projError" class="error-box" style="display:none;"></div>
+      <div id="projList" class="project-list"></div>
+
+      <!-- Owlstown 底部那一排 share 图标（你想保留就留，不想就删） -->
+      <div class="share-row">
+        <span class="muted">Share</span>
+        <a class="share-icon" href="#" aria-label="Twitter">🦋</a>
+        <a class="share-icon" href="#" aria-label="Facebook">f</a>
+        <a class="share-icon" href="#" aria-label="LinkedIn">in</a>
+        <a class="share-icon" href="#" aria-label="Email">✉</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-row">
+        <div class="footer-copy">&copy; 2026 Montgomery Group</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showError(msg){
+      const el = document.getElementById("projError");
+      el.style.display = "block";
+      el.textContent = msg;
+    }
+    function safeText(s){ return (s ?? "").toString(); }
+
+    async function loadProjects(){
+      const list = document.getElementById("projList");
+      list.innerHTML = "";
+
+      try{
+        const res = await fetch("assets/data/projects.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("projects.json 读取失败：" + res.status);
+        const projects = await res.json();
+        if(!Array.isArray(projects) || projects.length === 0){
+          showError("没有找到项目数据（assets/data/projects.json 为空或格式不对）。");
+          return;
+        }
+
+        projects.forEach(p => {
+          const id = safeText(p.id).trim();
+          if(!id) return;
+
+          const title = safeText(p.title) || "Untitled";
+          const desc  = safeText(p.summary) || "";
+          const img   = safeText(p.image) || "assets/img/projects/placeholder.png";
+
+          const row = document.createElement("div");
+          row.className = "project-item";
+
+          // 标题链接：默认进 project.html?id=xxx
+          // 如果你在 JSON 里写了 external_url，就直接跳外链
+          const link = p.external_url
+            ? `<a href="${p.external_url}" target="_blank" rel="noopener">${title}</a>`
+            : `<a href="project.html?id=${encodeURIComponent(id)}">${title}</a>`;
+
+          row.innerHTML = `
+            <div class="project-img">
+              <img src="${img}" alt="${title}" loading="lazy">
+            </div>
+            <div class="project-text">
+              <h3 class="project-title">${link}</h3>
+              <p class="project-desc">${desc}</p>
+            </div>
+          `;
+
+          list.appendChild(row);
+        });
+
+      }catch(e){
+        showError("加载 Projects 页面失败： " + e.message);
+      }
+    }
+
+    loadProjects();
+  </script>
+
+  <style>
+    .error-box{
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff7f7;
+      color: #8a1f1f;
+      margin-bottom: 14px;
+    }
+  </style>
+
+</body>
+</html>
 
