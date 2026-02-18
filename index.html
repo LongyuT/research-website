@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
   <!-- Header / Hero -->
   <header class="hero">
     <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
@@ -43,7 +42,6 @@
 
   <!-- Main -->
   <main class="container">
-
     <!-- About -->
     <section class="section">
       <h2 class="section-title">About</h2>
@@ -67,73 +65,13 @@
       </div>
     </section>
 
-    <!-- Recent Publications -->
+    <!-- Recent Publications (auto-render) -->
     <section class="section" id="recent-publications">
       <h2 class="section-title">Recent Publications</h2>
       <div class="divider"></div>
 
-      <div class="pub-list">
-
-        <article class="pub-item">
-          <h3 class="pub-title">
-            <a href="#" target="_blank" rel="noopener">
-              N-Oxide Insertion into LDA Dimeric Aggregates for Azomethine Ylide Formation: Explicit Solvation in Quantum Mechanical Treatment of Polarized Intermediates
-            </a>
-          </h3>
-          <p class="pub-authors">
-            M. Neal, Eric J. Chartier, Aiden M Lane, Sarah L Hejnosz, Luke T. Jesikiewicz, Peng Liu, Jeffrey J. Rohde, P. Lummis, Douglas J. Fox, J. Evanseck, Thomas D. Montgomery
-          </p>
-          <p class="pub-venue">Journal of Organic Chemistry, 2025</p>
-        </article>
-
-        <article class="pub-item">
-          <h3 class="pub-title">
-            <a href="#" target="_blank" rel="noopener">
-              Diastereoselective [3 + 2] Cycloaddition between Tertiary Amine N-Oxides and Substituted Alkenes to Access 7-Azanorbornanes
-            </a>
-          </h3>
-          <p class="pub-authors">
-            Alexander H Cocolas, Aiden M Lane, Benjamin S Musiak, Eric J. Chartier, Derek A Bedillion, Sarah L Hejnosz, P. Lummis, J. Evanseck, Thomas D. Montgomery
-          </p>
-          <p class="pub-venue">Organic Letters, 2024</p>
-        </article>
-
-        <article class="pub-item">
-          <h3 class="pub-title">
-            <a href="#" target="_blank" rel="noopener">
-              [3 + 2] Cycloadditions of Tertiary Amine N-Oxides and Silyl Imines as an Innovative Route to 1,2-Diamines
-            </a>
-          </h3>
-          <p class="pub-authors">
-            Sarah L Hejnosz, Danielle R. Beres, Alexander H Cocolas, M. Neal, Benjamin S Musiak, Marianne M B Hanna, A. Bloomfield, Thomas D. Montgomery
-          </p>
-          <p class="pub-venue">Organic Letters, 2023</p>
-        </article>
-
-        <article class="pub-item">
-          <h3 class="pub-title">
-            <a href="#" target="_blank" rel="noopener">
-              Synthetic Exploration of Bis(phenolate) Aza-BODIPYs and Heavier Group 13 Chelates
-            </a>
-          </h3>
-          <p class="pub-authors">
-            Aiden M Lane, Ny T. C. Luong, Jordan C. Kelly, M. Neal, Jeremiah Jamrom, A. Bloomfield, P. Lummis, Thomas D. Montgomery, Daniel T Chase
-          </p>
-          <p class="pub-venue">Molecules, 2022</p>
-        </article>
-
-        <article class="pub-item">
-          <h3 class="pub-title">
-            <a href="#" target="_blank" rel="noopener">
-              Synthesis and Photophysical Properties of Nitrated aza-BODIPYs
-            </a>
-          </h3>
-          <p class="pub-authors">
-            Samuel R Zarcone, Hana J Yarbrough, M. Neal, Jordan C. Kelly, Katie Kaczynski, A. Bloomfield, G. Bowers, Thomas D. Montgomery, Daniel T Chase
-          </p>
-          <p class="pub-venue">New Journal of Chemistry, 2022</p>
-        </article>
-
+      <div class="pub-list" id="pub-list">
+        <!-- JS will render first 5 items here -->
       </div>
 
       <a class="btn" href="publications.html">View all</a>
@@ -179,7 +117,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- Footer -->
@@ -194,6 +131,42 @@
     </div>
   </footer>
 
+  <!-- Data + render -->
+  <script src="assets/js/publications-data.js"></script>
+  <script>
+    (function () {
+      var listEl = document.getElementById("pub-list");
+      if (!listEl) return;
+
+      var pubs = (window.PUBLICATIONS || []).slice(0, 5);
+
+      function make(tag, className, text) {
+        var el = document.createElement(tag);
+        if (className) el.className = className;
+        if (text !== undefined && text !== null) el.textContent = text;
+        return el;
+      }
+
+      pubs.forEach(function (p) {
+        var item = make("article", "pub-item");
+
+        var h3 = make("h3", "pub-title");
+        var a = document.createElement("a");
+        a.href = "publication.html?slug=" + encodeURIComponent(p.slug);
+        a.rel = "noopener";
+        a.textContent = p.title;
+        h3.appendChild(a);
+
+        var authors = make("p", "pub-authors", p.authors);
+        var venue = make("p", "pub-venue", p.venue);
+
+        item.appendChild(h3);
+        item.appendChild(authors);
+        item.appendChild(venue);
+        listEl.appendChild(item);
+      });
+    })();
+  </script>
 </body>
 </html>
 
