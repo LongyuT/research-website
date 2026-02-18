@@ -1,3 +1,4 @@
+// assets/js/publication-page.js
 (function () {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("slug");
@@ -19,27 +20,29 @@
 
   if (!pub) {
     titleEl.textContent = "Publication not found";
-    abstractEl.innerHTML = `<p>No publication matches slug: <code>${slug}</code></p>`;
+    abstractEl.innerHTML = `<p>No publication matches slug: <code>${escapeHtml(slug)}</code></p>`;
     return;
   }
 
   document.title = pub.title + " | Montgomery Group";
 
-  titleEl.textContent = pub.title;
+  titleEl.textContent = pub.title || "";
   typeEl.textContent = pub.type || "";
   authorsEl.textContent = pub.authors || "";
   venueEl.textContent = pub.venue || "";
 
-  // buttons
-  buttonsEl.innerHTML = "";
+  // Buttons: 兼容 pubmedcentral / pmc
+  const pubmedcentral = pub.links?.pubmedcentral || pub.links?.pmc;
+
   const linkMap = [
     ["Semantic Scholar", pub.links?.semantic_scholar],
     ["DOI", pub.links?.doi],
-    ["PubMedCentral", pub.links?.pubmedcentral],
+    ["PubMedCentral", pubmedcentral],
     ["PubMed", pub.links?.pubmed],
     ["Cite", pub.links?.cite],
   ];
 
+  buttonsEl.innerHTML = "";
   linkMap.forEach(([label, url]) => {
     if (!url) return;
     const a = document.createElement("a");
