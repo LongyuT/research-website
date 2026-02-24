@@ -155,13 +155,13 @@ img{ max-width:100%; height:auto; }
 }
 
 .pub-thumb img{
-  width: 200px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: #fafafa;
-  display: block;
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
 }
 
 .pub-content{
