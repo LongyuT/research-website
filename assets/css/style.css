@@ -11,7 +11,7 @@
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; }
 body{
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -110,7 +110,6 @@ img{ max-width:100%; height:auto; }
   color:#fff;
   font-size: 44px;
   font-weight: 800;
-  letter-spacing: .2px;
 }
 
 /* --- Sections --- */
@@ -130,31 +129,12 @@ img{ max-width:100%; height:auto; }
   margin: 12px 0 18px;
 }
 
-.content p{
-  margin: 0 0 14px;
-  font-size: 15px;
-}
-
 .muted{ color: var(--muted); }
 
-/* --- Buttons --- */
-.btn{
-  display:inline-block;
-  margin-top: 14px;
-  padding: 10px 16px;
-  border: 1px solid #cfcfcf;
-  border-radius: 4px;
-  text-decoration:none;
-  color: var(--text);
-  background:#fff;
-  font-size: 14px;
-}
+/* ================================
+   Publications with thumbnails
+   ================================ */
 
-.btn:hover{
-  border-color:#a9a9a9;
-}
-
-/* --- Publications --- */
 .pub-list{
   display:flex;
   flex-direction:column;
@@ -162,8 +142,31 @@ img{ max-width:100%; height:auto; }
 }
 
 .pub-item{
-  padding-bottom: 18px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 18px 0;
   border-bottom: 1px solid var(--line);
+}
+
+.pub-thumb{
+  width: 200px;
+  flex: 0 0 200px;
+}
+
+.pub-thumb img{
+  width: 200px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fafafa;
+  display: block;
+}
+
+.pub-content{
+  flex: 1;
+  min-width: 0;
 }
 
 .pub-title{
@@ -183,7 +186,6 @@ img{ max-width:100%; height:auto; }
 
 .pub-authors{
   margin: 4px 0 6px;
-  color: var(--text);
   font-size: 14px;
 }
 
@@ -202,250 +204,9 @@ img{ max-width:100%; height:auto; }
   padding-left: 10px;
 }
 
-/* --- People --- */
-.people-grid{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+/* 手机适配 */
+@media (max-width: 760px){
+  .pub-item{ flex-direction: column; }
+  .pub-thumb{ width: 100%; }
+  .pub-thumb img{ width: 100%; height: 180px; }
 }
-
-.person-card{
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 16px;
-  align-items: start;
-}
-
-.person-photo{
-  display:block;
-}
-
-.person-photo img{
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 0;
-  display:block;
-  box-shadow: 0 10px 25px rgba(0,0,0,.12);
-}
-
-.person-name{
-  display:inline-block;
-  font-weight: 700;
-  text-decoration: underline;
-  margin-bottom: 4px;
-}
-
-.person-role{
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.person-bio{
-  margin: 0;
-  color: #666;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-/* 详情页布局 */
-.person-detail{
-  display:grid;
-  grid-template-columns: 240px 1fr;
-  gap: 24px;
-  align-items:start;
-}
-
-.person-detail-photo img{
-  width:100%;
-  max-width: 240px;
-  height:auto;
-  display:block;
-  box-shadow: 0 10px 25px rgba(0,0,0,.12);
-}
-
-/* --- Publication detail page --- */
-.pub-detail-title{
-  font-size: 42px;
-  line-height: 1.15;
-  margin-bottom: 10px;
-}
-
-.pub-buttons{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 18px 0 22px;
-}
-
-.btn.btn-sm{
-  padding: 6px 10px;
-  font-size: 14px;
-}
-
-.pub-subhead{
-  margin-top: 22px;
-  margin-bottom: 10px;
-}
-
-/* --- Contact --- */
-.contact-grid{
-  display:grid;
-  grid-template-columns: 240px 1fr 220px;
-  gap: 24px;
-  align-items:start;
-}
-
-.contact-photo img{
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  box-shadow: var(--shadow);
-}
-
-.contact-name{
-  margin: 0 0 6px;
-  font-size: 22px;
-  font-weight: 800;
-}
-
-.contact-line{
-  margin: 10px 0;
-  font-size: 14px;
-}
-
-.contact-side{
-  padding-top: 6px;
-}
-
-.contact-link{
-  margin: 10px 0;
-  font-size: 14px;
-}
-
-/* --- Footer --- */
-.footer{
-  border-top: 1px solid var(--line);
-  padding: 22px 0;
-  margin-top: 34px;
-}
-
-.footer-inner{ }
-
-.footer-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.footer-copy{
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.footer-links a{
-  color: var(--muted);
-  text-decoration:none;
-  font-size: 13px;
-}
-
-.footer-links a:hover{
-  text-decoration: underline;
-}
-
-/* --- Responsive --- */
-@media (max-width: 980px){
-  .people-grid{ grid-template-columns: 1fr; }
-  .person-card{ grid-template-columns: 160px 1fr; }
-  .contact-grid{ grid-template-columns: 200px 1fr; }
-  .contact-side{ grid-column: 1 / -1; }
-}
-
-@media (max-width: 640px){
-  .hero{ height: 240px; }
-  .hero-title h1{ font-size: 34px; }
-  .section-title{ font-size: 30px; }
-  .container{ width: min(980px, calc(100% - 28px)); }
-}
-
-@media (max-width: 520px){
-  .person-card{ grid-template-columns: 1fr; }
-  .person-photo img{ width: 100%; height: auto; }
-  .person-detail{ grid-template-columns: 1fr; }
-  .contact-grid{ grid-template-columns: 1fr; }
-  .contact-photo img{ width: 100%; height: auto; }
-}
-/* --- Projects --- */
-.project-list{
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  margin-top: 6px;
-}
-
-.project-item{
-  display: grid;
-  grid-template-columns: 230px 1fr;
-  gap: 18px;
-  align-items: start;
-}
-
-.project-img img{
-  width: 100%;
-  max-width: 230px;
-  height: auto;
-  display: block;
-  box-shadow: 0 10px 25px rgba(0,0,0,.12);
-  background: #f1f1f1;
-}
-
-.project-title{
-  margin: 0 0 8px;
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.project-title a{
-  color: var(--link);
-  text-decoration: underline;
-}
-
-.project-desc{
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-.share-row{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  margin-top: 26px;
-}
-
-.share-icon{
-  text-decoration: none;
-  color: var(--muted);
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 6px;
-}
-
-.share-icon:hover{
-  background: #f5f5f5;
-}
-
-@media (max-width: 900px){
-  .project-item{
-    grid-template-columns: 1fr;
-  }
-  .project-img img{
-    max-width: 360px;
-  }
-}
-
-
