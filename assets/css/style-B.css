@@ -530,42 +530,139 @@ img{ max-width:100%; height:auto; }
   }
 }
 /* =========================
-   THEME B: Soft Cards + Gradient
+   THEME B2: Structured Research Layout
+   Unique but clean academic
    ========================= */
+
 :root{
-  --bg:#f6f7fb;
-  --text:#141a2a;
-  --muted:#667085;
-  --link:#2563eb;
-  --line:#e6e9ef;
-  --shadow: 0 14px 35px rgba(16,24,40,.10);
+  --bg:#f4f6fa;
+  --text:#0f172a;
+  --muted:#5b6475;
+  --link:#1e40af;
+  --line:#dde3ee;
+  --accent:#2563eb;
+  --shadow: 0 8px 18px rgba(15,23,42,.05);
 }
 
-body{ background: var(--bg); }
+/* 页面整体浅灰 */
+body{
+  background: var(--bg);
+  color: var(--text);
+}
 
-/* Hero 更柔和一点 */
-.hero-overlay{ background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.18)); }
-
-/* section “卡片容器” */
+/* 内容区模块化 */
 .section{
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 28px;
-  margin: 26px 0;
-  box-shadow: var(--shadow);
-}
-
-/* Publications 每条变卡片 */
-.pub-item{
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 10px 22px rgba(16,24,40,.06);
+  padding: 30px;
+  margin: 28px 0;
+  box-shadow: var(--shadow);
+  position: relative;
 }
 
-.pub-item:hover{
-  transform: translateY(-1px);
-  transition: transform .12s ease;
+/* 左侧 accent line（非常学术） */
+.section::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background: var(--accent);
+  border-radius: 14px 0 0 14px;
+}
+
+/* 标题更有层级 */
+.section-title{
+  font-weight: 900;
+  letter-spacing: .4px;
+  margin-bottom: 12px;
+}
+
+/* divider 更轻 */
+.divider{
+  background: var(--line);
+}
+
+/* Hero 更克制 */
+.hero{
+  height: 250px;
+}
+.hero-overlay{
+  background: rgba(15,23,42,.40);
+}
+
+/* 导航更 structured */
+.nav{
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 8px 18px;
+  width: fit-content;
+  margin: 18px auto 0;
+  border: 1px solid var(--line);
+}
+
+.nav-link{
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.nav-link.active{
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Publications 更“引用块”风格 */
+.pub-item{
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pub-title{
+  font-weight: 900;
+  font-size: 19px;
+}
+
+.pub-title a{
+  color: var(--link);
+  text-decoration: none;
+}
+
+.pub-title a:hover{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pub-authors{
+  font-size: 14px;
+  color: var(--text);
+}
+
+.pub-venue{
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* 年份标题更像 academic section */
+.pub-year-title{
+  font-weight: 900;
+  font-size: 20px;
+  margin-top: 36px;
+  margin-bottom: 14px;
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+}
+
+/* Thumbnail 更 clean */
+.pub-thumb img{
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+/* Footer 更 structured */
+.footer{
+  border-top: 1px solid var(--line);
 }
