@@ -530,26 +530,71 @@ img{ max-width:100%; height:auto; }
   }
 }
 /* =========================
-   THEME A: Minimal Academic
+   THEME A: Minimal Academic (Stronger)
    ========================= */
 :root{
   --bg:#ffffff;
-  --text:#121826;
-  --muted:#5b6475;
+  --text:#0f172a;
+  --muted:#475569;
   --link:#0b5bd3;
-  --line:#e6e9ef;
-  --shadow: 0 10px 25px rgba(0,0,0,.10);
+  --line:#e2e8f0;
+  --shadow: 0 14px 30px rgba(2,6,23,.10);
 }
 
-/* 全局更“论文感” */
-body{ background: var(--bg); }
-.section-title{ letter-spacing: .2px; }
-.divider{ opacity: .9; }
+/* 更学术的排版 */
+body{
+  background: var(--bg);
+  letter-spacing: .1px;
+}
 
-/* Hero 更干净 */
-.hero-overlay{ background: rgba(0,0,0,.30); }
-.nav-link{ font-weight: 600; }
+.container{
+  width: min(920px, calc(100% - 48px)); /* 更像 academic 网站 */
+}
 
-/* 列表更紧凑更学术 */
-.pub-title{ font-size: 19px; }
-.pub-authors, .pub-venue{ font-size: 13.5px; }
+/* 标题更强、更像学校 */
+.section-title{
+  font-weight: 900;
+  letter-spacing: .4px;
+}
+
+/* divider 更干净 */
+.divider{
+  background: var(--line);
+  opacity: 1;
+}
+
+/* hero 更克制 */
+.hero{
+  height: 250px;
+}
+.hero-overlay{
+  background: rgba(0,0,0,.38);
+}
+
+/* nav 更“academic” */
+.nav-link{
+  font-weight: 750;
+  letter-spacing: .2px;
+}
+
+/* Publications 更紧凑更像论文列表 */
+.pub-item{
+  padding: 16px 0;
+}
+.pub-title{
+  font-size: 18.5px;
+  font-weight: 900;
+}
+.pub-authors, .pub-venue{
+  font-size: 13.25px;
+  line-height: 1.6;
+}
+
+/* 链接更像期刊风 */
+.pub-title a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pub-title a:hover{
+  opacity: .9;
+}
