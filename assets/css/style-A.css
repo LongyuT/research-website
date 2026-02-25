@@ -529,113 +529,148 @@ img{ max-width:100%; height:auto; }
     max-width: 360px;
   }
 }
-/* =========================
-   THEME A2: Minimal Modern Research
-   Cool but still academic
-   ========================= */
+/* ==========================================================
+   THEME: Editorial Dark Research
+   Structured + Typographic + Minimal
+   ========================================================== */
+
 :root{
-  --text:#0f172a;
-  --muted:#475569;
-  --link:#2563eb;
-  --bg:#0b1220;              /* page background */
-  --line:#e2e8f0;
-  --shadow: 0 18px 40px rgba(2,6,23,.10);
+  --bg:#121417;
+  --panel:#1b1f24;
+  --panel2:#20252b;
+  --text:#f5f7fa;
+  --muted:#a1a8b3;
+  --link:#5da9ff;
+  --line:#2c3138;
+  --accent:#5da9ff;
 }
 
-/* 背景更酷：很淡的科研渐变（不会花） */
+/* Page background */
 body{
-  background:
-    radial-gradient(900px 520px at 18% -10%, rgba(37,99,235,.16), transparent 60%),
-    radial-gradient(800px 520px at 88% 0%, rgba(99,102,241,.10), transparent 55%),
-    #f8fafc; /* 仍然是浅底，导师更容易接受 */
+  background: var(--bg);
   color: var(--text);
 }
 
-/* 内容区像论文页：更集中更干净 */
+/* Container slightly wider */
 .container{
-  width: min(960px, calc(100% - 48px));
+  width: min(1100px, calc(100% - 60px));
 }
 
-/* Section 做成轻卡片，但非常克制 */
-.section{
-  background: rgba(255,255,255,.92);
-  border: 1px solid rgba(226,232,240,.9);
-  border-radius: 18px;
-  padding: 28px;
-  margin: 26px 0;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(6px);
-}
-
-/* Hero 更酷一点但不浮夸 */
+/* Hero simplified */
 .hero{
-  height: 260px;
+  height: 220px;
 }
 .hero-overlay{
-  background: linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.20));
+  background: linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.20));
 }
 
-/* 半透明导航（很克制） */
+/* Navigation becomes strong & clean */
 .nav{
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.18);
-  backdrop-filter: blur(10px);
-  border-radius: 999px;
-  padding: 10px 18px;
-  width: fit-content;
-  margin: 18px auto 0;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
 }
 
 .nav-link{
-  color: rgba(255,255,255,.92);
+  color: var(--muted);
   font-weight: 700;
-  letter-spacing: .2px;
-}
-
-.nav-link:hover{
-  color:#fff;
-  border-bottom-color: rgba(255,255,255,.75);
-}
-
-.hero-title h1{
-  font-weight: 900;
   letter-spacing: .3px;
 }
 
-/* 标题更像 academic */
-.section-title{
-  font-weight: 900;
-  letter-spacing: .4px;
+.nav-link:hover{
+  color: var(--text);
 }
 
-/* Publications 列表更现代一点 */
+.nav-link.active{
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Section blocks */
+.section{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 40px;
+  margin: 30px 0;
+}
+
+/* Titles become bold editorial */
+.section-title{
+  font-size: 40px;
+  font-weight: 950;
+  letter-spacing: .5px;
+  margin-bottom: 16px;
+}
+
+/* Divider subtle */
+.divider{
+  background: var(--line);
+}
+
+/* Publications feel like journal entries */
 .pub-item{
-  border-bottom: 1px solid rgba(226,232,240,.95);
-  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+  background: transparent;
 }
 
 .pub-title{
+  font-size: 20px;
   font-weight: 900;
-  font-size: 19px;
 }
 
 .pub-title a{
+  color: var(--text);
   text-decoration: none;
 }
 
 .pub-title a:hover{
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--accent);
 }
 
-/* 缩略图更像 TOC */
+.pub-authors{
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.pub-venue{
+  color: #88909c;
+  font-size: 13px;
+}
+
+/* Year label more typographic */
+.pub-year-title{
+  font-size: 22px;
+  font-weight: 900;
+  margin-top: 36px;
+  margin-bottom: 18px;
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+}
+
+/* Thumbnails minimal frame */
 .pub-thumb img{
-  border-radius: 10px;
-  border: 1px solid rgba(226,232,240,.95);
-  background: #fff;
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
 }
 
-/* Footer 更干净 */
+/* Footer */
 .footer{
-  border-top: 1px solid rgba(226,232,240,.9);
+  border-top: 1px solid var(--line);
+}
+
+.footer-copy,
+.footer-links a{
+  color: var(--muted);
+}
+
+/* Mobile */
+@media (max-width: 760px){
+  .section{
+    padding: 24px;
+  }
+
+  .section-title{
+    font-size: 30px;
+  }
 }
