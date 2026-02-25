@@ -529,100 +529,212 @@ img{ max-width:100%; height:auto; }
     max-width: 360px;
   }
 }
-/* =========================
-   THEME B2: Structured Research Layout
-   Unique but clean academic
-   ========================= */
+
+/* ==========================================================
+   THEME B3: Big Change — Modern Research UI (CSS-only)
+   - Sticky glass nav
+   - Shorter hero
+   - Card sections
+   - Publications timeline cards
+   ========================================================== */
 
 :root{
-  --bg:#f4f6fa;
-  --text:#0f172a;
-  --muted:#5b6475;
-  --link:#1e40af;
-  --line:#dde3ee;
+  --bg:#f3f6fb;
+  --panel:#ffffff;
+  --text:#0b1220;
+  --muted:#526079;
+  --link:#1d4ed8;
+  --line: rgba(15,23,42,.10);
   --accent:#2563eb;
-  --shadow: 0 8px 18px rgba(15,23,42,.05);
+  --shadow: 0 18px 50px rgba(2,6,23,.08);
+  --shadow2: 0 10px 22px rgba(2,6,23,.06);
+  --radius: 18px;
 }
 
-/* 页面整体浅灰 */
+/* 1) 页面整体：明显变化（浅灰 + 微网格） */
 body{
-  background: var(--bg);
+  background:
+    radial-gradient(900px 520px at 20% -10%, rgba(37,99,235,.12), transparent 60%),
+    radial-gradient(900px 520px at 90% 0%, rgba(99,102,241,.10), transparent 55%),
+    linear-gradient(0deg, rgba(2,6,23,.03), rgba(2,6,23,.03)),
+    var(--bg);
   color: var(--text);
 }
 
-/* 内容区模块化 */
-.section{
-  background: #ffffff;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 30px;
-  margin: 28px 0;
-  box-shadow: var(--shadow);
-  position: relative;
+/* 2) container 更像现代站：更宽 + 层次更清晰 */
+.container{
+  width: min(1080px, calc(100% - 56px));
 }
 
-/* 左侧 accent line（非常学术） */
-.section::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
-  width:4px;
-  background: var(--accent);
-  border-radius: 14px 0 0 14px;
-}
-
-/* 标题更有层级 */
-.section-title{
-  font-weight: 900;
-  letter-spacing: .4px;
-  margin-bottom: 12px;
-}
-
-/* divider 更轻 */
-.divider{
-  background: var(--line);
-}
-
-/* Hero 更克制 */
+/* 3) Hero 更“现代”：更短 + 更有层次 */
 .hero{
-  height: 250px;
-}
-.hero-overlay{
-  background: rgba(15,23,42,.40);
+  height: 220px;
 }
 
-/* 导航更 structured */
+.hero-bg{
+  transform: scale(1.04);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.hero-overlay{
+  background: linear-gradient(180deg, rgba(2,6,23,.62), rgba(2,6,23,.20));
+}
+
+/* 4) 导航变成 sticky glass（差异很大） */
 .nav{
-  background: rgba(255,255,255,.85);
-  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 12px;
+  z-index: 1000;
+
+  background: rgba(255,255,255,.62);
+  border: 1px solid rgba(255,255,255,.65);
+  backdrop-filter: blur(12px);
   border-radius: 999px;
-  padding: 8px 18px;
+
+  padding: 10px 18px;
   width: fit-content;
-  margin: 18px auto 0;
-  border: 1px solid var(--line);
+  margin: 14px auto 0;
+
+  box-shadow: var(--shadow2);
 }
 
 .nav-link{
-  color: #0f172a;
-  font-weight: 700;
+  color: rgba(2,6,23,.85);
+  font-weight: 760;
+  letter-spacing: .15px;
+}
+
+.nav-link:hover{
+  color: rgba(2,6,23,.95);
+  border-bottom-color: rgba(37,99,235,.45);
 }
 
 .nav-link.active{
-  border-bottom-color: var(--accent);
   color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
-/* Publications 更“引用块”风格 */
-.pub-item{
-  padding: 18px 0;
-  border-bottom: 1px solid var(--line);
+/* 5) Section 变卡片面板（大变化） */
+.section{
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin: 26px 0;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
 }
 
-.pub-title{
+.section-title{
+  font-size: 34px;
   font-weight: 900;
-  font-size: 19px;
+  letter-spacing: .35px;
+}
+
+.divider{
+  height: 1px;
+  background: var(--line);
+  margin: 12px 0 18px;
+}
+
+/* 6) 文本更“研究站”：可读性更好 */
+.content p{
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(2,6,23,.88);
+}
+
+.muted{ color: var(--muted); }
+
+/* 7) Publications：改成 timeline 卡片（差异最大） */
+.pub-year-title{
+  margin-top: 34px;
+  margin-bottom: 14px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: .25px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  color: rgba(2,6,23,.88);
+}
+
+.pub-year-title::after{
+  content:"";
+  display:block;
+  height: 1px;
+  width: 140px;
+  background: var(--line);
+  margin-left: 6px;
+}
+
+/* 整个 pub 列表像 timeline：左侧一条竖线 */
+.pub-list{
+  position: relative;
+  margin-left: 10px;
+  padding-left: 18px;
+}
+
+.pub-list::before{
+  content:"";
+  position:absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(37,99,235,.20);
+  border-radius: 99px;
+}
+
+/* 每条 publication 变成卡片块 */
+.pub-item{
+  position: relative;
+  border-bottom: none;
+  padding: 16px;
+  margin: 0 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255,255,255,.95);
+  box-shadow: var(--shadow2);
+}
+
+/* timeline 的节点圆点 */
+.pub-item::before{
+  content:"";
+  position:absolute;
+  left: -22px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 999px;
+  box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+/* 缩略图保持整齐，但更像“组件” */
+.pub-thumb{
+  width: 150px;
+  flex: 0 0 150px;
+}
+
+.pub-thumb img{
+  width: 150px;
+  height: 96px;
+  object-fit: contain;
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(15,23,42,.10);
+  background: #fff;
+  cursor: zoom-in;
+}
+
+/* 标题更突出 */
+.pub-title{
+  font-size: 18.5px;
+  font-weight: 950;
+  margin: 0 0 6px;
 }
 
 .pub-title a{
@@ -636,8 +748,9 @@ body{
 }
 
 .pub-authors{
-  font-size: 14px;
-  color: var(--text);
+  font-size: 13.6px;
+  color: rgba(2,6,23,.85);
+  margin: 4px 0 6px;
 }
 
 .pub-venue{
@@ -645,24 +758,28 @@ body{
   color: var(--muted);
 }
 
-/* 年份标题更像 academic section */
-.pub-year-title{
-  font-weight: 900;
-  font-size: 20px;
-  margin-top: 36px;
-  margin-bottom: 14px;
-  border-left: 4px solid var(--accent);
-  padding-left: 10px;
+/* hover：卡片轻浮起 */
+.pub-item:hover{
+  transform: translateY(-1px);
+  transition: transform .12s ease;
 }
 
-/* Thumbnail 更 clean */
-.pub-thumb img{
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  background: #fff;
-}
-
-/* Footer 更 structured */
+/* 8) footer 更简洁 */
 .footer{
   border-top: 1px solid var(--line);
+}
+
+/* 9) mobile 适配 */
+@media (max-width: 760px){
+  .container{ width: min(1080px, calc(100% - 28px)); }
+  .hero{ height: 210px; }
+  .section{ padding: 20px; border-radius: 16px; }
+
+  .pub-item{ padding: 14px; }
+  .pub-list{ margin-left: 0; padding-left: 14px; }
+  .pub-item::before{ left: -18px; }
+
+  .pub-item{ flex-direction: column; gap: 12px; }
+  .pub-thumb{ width: 100%; flex: 0 0 auto; }
+  .pub-thumb img{ width: 100%; height: 160px; }
 }
