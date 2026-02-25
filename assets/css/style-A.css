@@ -1,0 +1,24 @@
+/* =========================
+   THEME A: Minimal Academic
+   ========================= */
+:root{
+  --bg:#ffffff;
+  --text:#121826;
+  --muted:#5b6475;
+  --link:#0b5bd3;
+  --line:#e6e9ef;
+  --shadow: 0 10px 25px rgba(0,0,0,.10);
+}
+
+/* 全局更“论文感” */
+body{ background: var(--bg); }
+.section-title{ letter-spacing: .2px; }
+.divider{ opacity: .9; }
+
+/* Hero 更干净 */
+.hero-overlay{ background: rgba(0,0,0,.30); }
+.nav-link{ font-weight: 600; }
+
+/* 列表更紧凑更学术 */
+.pub-title{ font-size: 19px; }
+.pub-authors, .pub-venue{ font-size: 13.5px; }
