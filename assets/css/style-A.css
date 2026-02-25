@@ -530,147 +530,194 @@ img{ max-width:100%; height:auto; }
   }
 }
 /* ==========================================================
-   THEME: Editorial Dark Research
-   Structured + Typographic + Minimal
+   CSS-only Upgrade: Modern Research (clean + not all white)
+   Paste this at the END of style.css
    ========================================================== */
 
 :root{
-  --bg:#121417;
-  --panel:#1b1f24;
-  --panel2:#20252b;
-  --text:#f5f7fa;
-  --muted:#a1a8b3;
-  --link:#5da9ff;
-  --line:#2c3138;
-  --accent:#5da9ff;
+  --bg: #0b1220;            /* page background tone (dark navy) */
+  --panel: rgba(255,255,255,.92);  /* content panel */
+  --text: #0b1220;
+  --muted: #526079;
+  --link: #2563eb;
+  --line: rgba(15,23,42,.10);
+  --accent: #2563eb;
+  --shadow: 0 18px 50px rgba(2,6,23,.10);
+  --shadow2: 0 10px 22px rgba(2,6,23,.07);
+  --radius: 18px;
 }
 
-/* Page background */
+/* Background: subtle research glow (not white, not flashy) */
 body{
-  background: var(--bg);
-  color: var(--text);
+  background:
+    radial-gradient(900px 520px at 18% -10%, rgba(37,99,235,.20), transparent 60%),
+    radial-gradient(900px 520px at 90% 0%, rgba(99,102,241,.14), transparent 55%),
+    radial-gradient(800px 420px at 55% 110%, rgba(20,184,166,.10), transparent 55%),
+    #0b1220;
+  color: rgba(255,255,255,.92);
 }
 
-/* Container slightly wider */
-.container{
-  width: min(1100px, calc(100% - 60px));
-}
-
-/* Hero simplified */
-.hero{
-  height: 220px;
-}
-.hero-overlay{
-  background: linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.20));
-}
-
-/* Navigation becomes strong & clean */
-.nav{
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 8px;
-}
-
-.nav-link{
-  color: var(--muted);
-  font-weight: 700;
-  letter-spacing: .3px;
-}
-
-.nav-link:hover{
-  color: var(--text);
-}
-
-.nav-link.active{
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-/* Section blocks */
+/* Keep content readable: make container panels */
 .section{
   background: var(--panel);
-  border: 1px solid var(--line);
-  padding: 40px;
-  margin: 30px 0;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin: 26px 0;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  color: var(--text);
 }
 
-/* Titles become bold editorial */
+.container{
+  width: min(1080px, calc(100% - 56px));
+}
+
+/* Titles more academic */
 .section-title{
-  font-size: 40px;
-  font-weight: 950;
-  letter-spacing: .5px;
-  margin-bottom: 16px;
+  font-weight: 900;
+  letter-spacing: .35px;
 }
 
 /* Divider subtle */
 .divider{
-  background: var(--line);
+  background: rgba(15,23,42,.12);
 }
 
-/* Publications feel like journal entries */
+/* Hero: deeper overlay, cleaner look */
+.hero{
+  height: 240px;
+}
+.hero-bg{
+  transform: scale(1.04);
+  filter: saturate(1.05) contrast(1.02);
+}
+.hero-overlay{
+  background: linear-gradient(180deg, rgba(2,6,23,.68), rgba(2,6,23,.18));
+}
+
+/* Nav: glass pill + sticky (big visual upgrade) */
+.nav{
+  position: sticky;
+  top: 12px;
+  z-index: 1000;
+
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.22);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+
+  padding: 10px 18px;
+  width: fit-content;
+  margin: 14px auto 0;
+
+  box-shadow: var(--shadow2);
+}
+
+.nav-link{
+  color: rgba(255,255,255,.92);
+  font-weight: 750;
+  letter-spacing: .15px;
+}
+.nav-link:hover{
+  color:#fff;
+  border-bottom-color: rgba(255,255,255,.70);
+}
+.nav-link.active{
+  color:#fff;
+  border-bottom-color:#fff;
+}
+
+/* Publications: card list (clean, not flashy) */
 .pub-item{
-  border-bottom: 1px solid var(--line);
-  padding: 22px 0;
-  background: transparent;
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 0 0 16px;
+  box-shadow: var(--shadow2);
+  border-bottom: none; /* override old */
 }
-
+.pub-list{
+  gap: 0; /* because we use margin on pub-item */
+}
 .pub-title{
-  font-size: 20px;
-  font-weight: 900;
+  font-weight: 950;
+  font-size: 18.5px;
 }
-
 .pub-title a{
-  color: var(--text);
+  color: var(--link);
   text-decoration: none;
 }
-
 .pub-title a:hover{
-  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-
 .pub-authors{
-  color: var(--muted);
-  font-size: 14px;
+  color: rgba(2,6,23,.85);
 }
-
 .pub-venue{
-  color: #88909c;
-  font-size: 13px;
-}
-
-/* Year label more typographic */
-.pub-year-title{
-  font-size: 22px;
-  font-weight: 900;
-  margin-top: 36px;
-  margin-bottom: 18px;
-  border-left: 4px solid var(--accent);
-  padding-left: 12px;
-}
-
-/* Thumbnails minimal frame */
-.pub-thumb img{
-  background: var(--panel2);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
-/* Footer */
-.footer{
-  border-top: 1px solid var(--line);
-}
-
-.footer-copy,
-.footer-links a{
   color: var(--muted);
 }
 
-/* Mobile */
-@media (max-width: 760px){
-  .section{
-    padding: 24px;
-  }
+/* Year title looks like a section header */
+.pub-year-title{
+  font-weight: 900;
+  border-left-color: var(--accent);
+  color: rgba(2,6,23,.88);
+}
 
-  .section-title{
-    font-size: 30px;
-  }
+/* Thumbnails: nicer frame */
+.pub-thumb{
+  width: 150px;
+  flex: 0 0 150px;
+}
+.pub-thumb img{
+  width: 150px;
+  height: 96px;
+  object-fit: contain;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(2,6,23,.08);
+}
+
+/* People / Projects cards also feel unified */
+.person-photo img,
+.project-img img,
+.contact-photo img{
+  border-radius: 14px;
+}
+
+.project-item{
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(15,23,42,.10);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow2);
+}
+
+/* Footer looks cleaner on dark bg */
+.footer{
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+.footer-copy, .footer-links a{
+  color: rgba(255,255,255,.70);
+}
+
+/* Lightbox: keep it strong */
+.lightbox{
+  background: rgba(0,0,0,.80);
+}
+
+/* Responsive */
+@media (max-width: 760px){
+  .container{ width: min(1080px, calc(100% - 28px)); }
+  .hero{ height: 220px; }
+  .section{ padding: 20px; border-radius: 16px; }
+
+  .pub-item{ flex-direction: column; }
+  .pub-thumb{ width: 100%; flex: 0 0 auto; }
+  .pub-thumb img{ width: 100%; height: 160px; }
 }
