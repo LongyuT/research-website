@@ -530,71 +530,112 @@ img{ max-width:100%; height:auto; }
   }
 }
 /* =========================
-   THEME A: Minimal Academic (Stronger)
+   THEME A2: Minimal Modern Research
+   Cool but still academic
    ========================= */
 :root{
-  --bg:#ffffff;
   --text:#0f172a;
   --muted:#475569;
-  --link:#0b5bd3;
+  --link:#2563eb;
+  --bg:#0b1220;              /* page background */
   --line:#e2e8f0;
-  --shadow: 0 14px 30px rgba(2,6,23,.10);
+  --shadow: 0 18px 40px rgba(2,6,23,.10);
 }
 
-/* 更学术的排版 */
+/* 背景更酷：很淡的科研渐变（不会花） */
 body{
-  background: var(--bg);
-  letter-spacing: .1px;
+  background:
+    radial-gradient(900px 520px at 18% -10%, rgba(37,99,235,.16), transparent 60%),
+    radial-gradient(800px 520px at 88% 0%, rgba(99,102,241,.10), transparent 55%),
+    #f8fafc; /* 仍然是浅底，导师更容易接受 */
+  color: var(--text);
 }
 
+/* 内容区像论文页：更集中更干净 */
 .container{
-  width: min(920px, calc(100% - 48px)); /* 更像 academic 网站 */
+  width: min(960px, calc(100% - 48px));
 }
 
-/* 标题更强、更像学校 */
+/* Section 做成轻卡片，但非常克制 */
+.section{
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(226,232,240,.9);
+  border-radius: 18px;
+  padding: 28px;
+  margin: 26px 0;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+/* Hero 更酷一点但不浮夸 */
+.hero{
+  height: 260px;
+}
+.hero-overlay{
+  background: linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.20));
+}
+
+/* 半透明导航（很克制） */
+.nav{
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  padding: 10px 18px;
+  width: fit-content;
+  margin: 18px auto 0;
+}
+
+.nav-link{
+  color: rgba(255,255,255,.92);
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.nav-link:hover{
+  color:#fff;
+  border-bottom-color: rgba(255,255,255,.75);
+}
+
+.hero-title h1{
+  font-weight: 900;
+  letter-spacing: .3px;
+}
+
+/* 标题更像 academic */
 .section-title{
   font-weight: 900;
   letter-spacing: .4px;
 }
 
-/* divider 更干净 */
-.divider{
-  background: var(--line);
-  opacity: 1;
-}
-
-/* hero 更克制 */
-.hero{
-  height: 250px;
-}
-.hero-overlay{
-  background: rgba(0,0,0,.38);
-}
-
-/* nav 更“academic” */
-.nav-link{
-  font-weight: 750;
-  letter-spacing: .2px;
-}
-
-/* Publications 更紧凑更像论文列表 */
+/* Publications 列表更现代一点 */
 .pub-item{
+  border-bottom: 1px solid rgba(226,232,240,.95);
   padding: 16px 0;
 }
+
 .pub-title{
-  font-size: 18.5px;
   font-weight: 900;
-}
-.pub-authors, .pub-venue{
-  font-size: 13.25px;
-  line-height: 1.6;
+  font-size: 19px;
 }
 
-/* 链接更像期刊风 */
 .pub-title a{
+  text-decoration: none;
+}
+
+.pub-title a:hover{
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.pub-title a:hover{
-  opacity: .9;
+
+/* 缩略图更像 TOC */
+.pub-thumb img{
+  border-radius: 10px;
+  border: 1px solid rgba(226,232,240,.95);
+  background: #fff;
+}
+
+/* Footer 更干净 */
+.footer{
+  border-top: 1px solid rgba(226,232,240,.9);
 }
