@@ -83,16 +83,13 @@
         return Number(b) - Number(a);
       });
 
-      // ✅ 你上传的是 pub1.png ~ pub6.png
-      // 这里用 slug 精确绑定，避免新增论文后图片乱序
       var imageMap = {
         "n-oxide-insertion-lda-2025": "assets/img/pub1.png",
         "diastereoselective-3-2-2024": "assets/img/pub2.png",
         "3-2-cycloadditions-2023": "assets/img/pub3.png",
         "aza-bodipys-2022": "assets/img/pub4.png",
         "nitrated-aza-bodipys-2022": "assets/img/pub5.png"
-        // 如果你之后加第6篇论文，把 slug 写在下面：
-        // "your-6th-slug": "assets/img/pub6.png"
+
       };
 
       // ===== Lightbox DOM (create once) =====
@@ -153,7 +150,6 @@
             var thumbWrap = document.createElement("div");
             thumbWrap.className = "pub-thumb";
 
-            // 用 button 防止默认跳转；标题/文字仍然跳详情页
             var btn = document.createElement("button");
             btn.type = "button";
             btn.style.all = "unset";
@@ -164,7 +160,7 @@
             img.alt = "TOC graphic";
             img.loading = "lazy";
 
-            // fallback: png -> jpg（可选容错）
+            // fallback: png -> jpg
             img.onerror = function(){
               if(img.src.endsWith(".png")){
                 img.src = img.src.replace(".png", ".jpg");
