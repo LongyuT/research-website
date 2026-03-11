@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
-    /* 只做极少量补充：让整块可点，但不改变你 style.css 的排版 */
     .person-card{
       text-decoration: none;
       color: inherit;
@@ -92,13 +91,12 @@
       grid.innerHTML = "";
 
       try{
-        // ✅ 确保 people.json 放在这个路径：assets/data/people.json
         const res = await fetch('assets/data/people.json', { cache: 'no-store' });
         if(!res.ok) throw new Error("people.json 读取失败：" + res.status);
 
         const people = await res.json();
         if(!Array.isArray(people) || people.length === 0){
-          showError("没有找到人员数据（assets/data/people.json 为空或格式不对）。");
+          showError("No personnel data found（assets/data/people.json is empty or incorrect format）。");
           return;
         }
 
@@ -111,7 +109,6 @@
           const photoUrl = safeText(p.photo) || "assets/img/people/placeholder.png";
           const bio = truncate(p.short_bio || p.bio || "", 260);
 
-          // 用你 style.css 的 People layout：图 + 右侧文字
           const card = document.createElement('a');
           card.className = 'person-card';
           card.href = 'person.html?id=' + encodeURIComponent(id);
@@ -131,7 +128,7 @@
         }
 
       }catch(e){
-        showError("加载 People 页面失败： " + e.message);
+        showError("Failed to load People page： " + e.message);
       }
     }
 
@@ -139,7 +136,6 @@
   </script>
 
   <style>
-    /* error box 你之前写在 people.html 里了，我保留一个同样效果，避免找不到类 */
     .error-box{
       padding: 14px;
       border: 1px solid var(--line);
