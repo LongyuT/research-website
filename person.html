@@ -179,7 +179,7 @@
 
       try{
         const res = await fetch('assets/data/people.json', { cache: 'no-store' });
-        if(!res.ok) throw new Error("people.json 读取失败：" + res.status);
+        if(!res.ok) throw new Error("people.json Read failed：" + res.status);
 
         const people = await res.json();
         const person = Array.isArray(people) ? people.find(p => safeText(p.id).trim() === id) : null;
