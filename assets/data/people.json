@@ -2,37 +2,105 @@
   {
     "id": "montgomery",
     "name": "Thomas Montgomery",
-    "role": "PI",
-    "photo": "assets/img/people/thomas.jpg",
+    "role": "Principal Investigator",
+    "photo": "assets/img/avatar.jpg",
     "email": "montgomeryt1@duq.edu",
     "links": {
-      "orcid": "https://orcid.org/0000-0002-6526-8564",
-      "cv": "cv.html",
-      "website": "",
-      "scholar": ""
+      "orcid": "https://orcid.org/0000-0002-6526-8564"
     },
-    "short_bio": "Thomas grew up in the northern DC suburbs before earning his bachelors degree in chemistry and biology from St. Mary's College of Maryland...",
-    "bio": "Thomas grew up in the northern DC suburbs before earning his bachelors degree in chemistry and biology from St. Mary's College of Maryland. He then joined the Department of Chemistry at the University of Chicago where he earned his Ph.D. in 2015 under the mentorship of Prof. Viresh Rawal. Next he completed a post-doctoral fellowship with Prof. Amos B. Smith III at the University of Pennsylvania before joining the Department of Chemistry and Biochemistry at Duquesne University in 2018."
+    "short_bio": "Thomas Montgomery is the principal investigator of the Montgomery Group at Duquesne University.",
+    "bio": "Thomas Montgomery is the principal investigator of the Montgomery Group at Duquesne University."
   },
+
   {
-    "id": "aiden-lane",
-    "name": "Aiden Lane",
-    "role": "Graduate Student (Ph.D.)",
-    "photo": "assets/img/people/placeholder.png",
+    "id": "malu-satheesan-nair",
+    "name": "Malu Satheesan Nair",
+    "role": "Current Group Member",
+    "photo": "assets/img/Malu.jpg",
     "email": "",
     "links": {},
-    "short_bio": "",
-    "bio": ""
+    "short_bio": "Joined the group in July 2024 (Ph.D.) and January 2023 (masters). Undergraduate degree from St. Joseph's College.",
+    "bio": "Joined the group in July 2024 (Ph.D.) and January 2023 (masters). Undergraduate: St. Joseph's College (BSc, 2018–2021)."
+  },
+  {
+    "id": "liz-colecchia",
+    "name": "Liz Colecchia",
+    "role": "Current Group Member",
+    "photo": "assets/img/Liz.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Joined the group in May 2025. Earned a BS in Chemistry at Seton Hill University in May 2024.",
+    "bio": "Joined the group in May 2025. Earned a BS in Chemistry at Seton Hill University in May 2024."
+  },
+  {
+    "id": "emily-vargo",
+    "name": "Emily Vargo",
+    "role": "Current Group Member",
+    "photo": "assets/img/Emily.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Joined the group in August 2024. Earned a BS at Saint Vincent College in May 2022.",
+    "bio": "Joined the group in August 2024. BS earned at Saint Vincent College, May 2022."
   },
   {
     "id": "nick-frankos",
     "name": "Nick Frankos",
-    "role": "Graduate Student (Ph.D.)",
-    "photo": "assets/img/people/placeholder.png",
+    "role": "Current Group Member",
+    "photo": "assets/img/avatar.jpg",
     "email": "",
     "links": {},
-    "short_bio": "",
-    "bio": ""
+    "short_bio": "Joined the group in 2023. Earned a BS from University of Pittsburgh at Greensburg in 2018.",
+    "bio": "Joined the group in 2023. BS from University of Pittsburgh at Greensburg in 2018."
+  },
+  {
+    "id": "luke-forrester",
+    "name": "Luke Forrester",
+    "role": "Current Group Member",
+    "photo": "assets/img/avatar.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Joined the group on August 1, 2025. Earned a BS in Biochemistry from Franciscan University of Steubenville.",
+    "bio": "Joined the group on 8/01/2025. Earned a BS in Biochemistry from Franciscan University of Steubenville on 5/12/2025."
+  },
+  {
+    "id": "aiden-lane",
+    "name": "Aiden Lane",
+    "role": "Current Group Member",
+    "photo": "assets/img/avatar.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Joined the group in August 2022. Graduated with a BS from St. Mary's College of Maryland in 2022.",
+    "bio": "Joined the group in August 2022. Graduated with BS in 2022 from St. Mary's College of Maryland."
+  },
+
+  {
+    "id": "sarah-hejnosz",
+    "name": "Sarah Hejnosz",
+    "role": "Former Group Member",
+    "photo": "assets/img/avatar.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Graduated in 2023. Assistant Professor at St. Vincent College.",
+    "bio": "Graduated in 2023. Current position: Assistant Professor at St. Vincent College."
+  },
+  {
+    "id": "alex-cocolas",
+    "name": "Alex Cocolas",
+    "role": "Former Group Member",
+    "photo": "assets/img/avatar.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Graduated in 2024. Senior Research Chemistry II at JSTAR.",
+    "bio": "Graduated in 2024. Current position: Senior Research Chemistry II - JSTAR."
+  },
+  {
+    "id": "martin-neal",
+    "name": "Martin Neal",
+    "role": "Former Group Member",
+    "photo": "assets/img/avatar.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Graduated in 2025. Product Development Chemistry at PPG.",
+    "bio": "Graduated in 2025. Current position: Product Development Chemistry - PPG."
   }
 ]
-
