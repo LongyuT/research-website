@@ -143,10 +143,10 @@
       const p = safeText(photo).trim().toLowerCase();
       if (!p) return false;
       return (
+        p === 'assets/img/avatar.jpg' ||
         p === 'assets/img/malu.jpg' ||
         p === 'assets/img/liz.jpg' ||
-        p === 'assets/img/emily.jpg' ||
-        p === 'assets/img/thomas.jpg'
+        p === 'assets/img/emily.jpg' 
       );
     }
 
