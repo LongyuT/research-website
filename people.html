@@ -96,7 +96,7 @@
 
         const people = await res.json();
         if(!Array.isArray(people) || people.length === 0){
-          showError("No personnel data found（assets/data/people.json is empty or incorrect format）。");
+          showError("No personnel data found.（assets/data/people.json is empty or incorrectly formatted.）。");
           return;
         }
 
@@ -128,7 +128,7 @@
         }
 
       }catch(e){
-        showError("Failed to load People page： " + e.message);
+        showError("Failed to load the People page.： " + e.message);
       }
     }
 
@@ -148,5 +148,8 @@
 
 </body>
 </html>
+
+
+
 
 
