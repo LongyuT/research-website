@@ -179,7 +179,7 @@
 
       try{
         const res = await fetch('assets/data/people.json', { cache: 'no-store' });
-        if(!res.ok) throw new Error("people.json Read failed：" + res.status);
+        if(!res.ok) throw new Error("people.json read failed：" + res.status);
 
         const people = await res.json();
         const person = Array.isArray(people) ? people.find(p => safeText(p.id).trim() === id) : null;
@@ -227,7 +227,7 @@
         document.getElementById('personWrap').style.display = 'block';
 
       }catch(e){
-        showError("Failed to load Person page： " + e.message);
+        showError("Failed to load the Person page.： " + e.message);
       }
     }
 
@@ -236,3 +236,4 @@
 
 </body>
 </html>
+
