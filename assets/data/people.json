@@ -11,8 +11,7 @@
     "short_bio": "Thomas Montgomery is the principal investigator of the Montgomery Group at Duquesne University.",
     "bio": "Thomas Montgomery is the principal investigator of the Montgomery Group at Duquesne University."
   },
-
-  {
+ {
     "id": "malu-satheesan-nair",
     "name": "Malu Satheesan Nair",
     "role": "Current Group Member",
@@ -46,7 +45,7 @@
     "id": "nick-frankos",
     "name": "Nick Frankos",
     "role": "Current Group Member",
-    "photo": "assets/img/avatar.jpg",
+    "photo": "",
     "email": "",
     "links": {},
     "short_bio": "Joined the group in 2023. Earned a BS from University of Pittsburgh at Greensburg in 2018.",
@@ -56,7 +55,7 @@
     "id": "luke-forrester",
     "name": "Luke Forrester",
     "role": "Current Group Member",
-    "photo": "assets/img/avatar.jpg",
+    "photo": "",
     "email": "",
     "links": {},
     "short_bio": "Joined the group on August 1, 2025. Earned a BS in Biochemistry from Franciscan University of Steubenville.",
@@ -66,18 +65,17 @@
     "id": "aiden-lane",
     "name": "Aiden Lane",
     "role": "Current Group Member",
-    "photo": "assets/img/avatar.jpg",
+    "photo": "",
     "email": "",
     "links": {},
     "short_bio": "Joined the group in August 2022. Graduated with a BS from St. Mary's College of Maryland in 2022.",
     "bio": "Joined the group in August 2022. Graduated with BS in 2022 from St. Mary's College of Maryland."
   },
-
   {
     "id": "sarah-hejnosz",
     "name": "Sarah Hejnosz",
     "role": "Former Group Member",
-    "photo": "assets/img/avatar.jpg",
+    "photo": "",
     "email": "",
     "links": {},
     "short_bio": "Graduated in 2023. Assistant Professor at St. Vincent College.",
@@ -87,7 +85,7 @@
     "id": "alex-cocolas",
     "name": "Alex Cocolas",
     "role": "Former Group Member",
-    "photo": "assets/img/avatar.jpg",
+    "photo": "",
     "email": "",
     "links": {},
     "short_bio": "Graduated in 2024. Senior Research Chemistry II at JSTAR.",
@@ -97,7 +95,7 @@
     "id": "martin-neal",
     "name": "Martin Neal",
     "role": "Former Group Member",
-    "photo": "assets/img/avatar.jpg",
+    "photo": "",
     "email": "",
     "links": {},
     "short_bio": "Graduated in 2025. Product Development Chemistry at PPG.",
