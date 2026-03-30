@@ -209,18 +209,6 @@
       return a;
     }
 
-    function hasRealPhoto(photo){
-      const p = safeText(photo).trim().toLowerCase();
-      if(!p) return false;
-
-      return (
-        p === 'assets/img/avatar.jpg' ||
-        p === 'assets/img/malu.jpg' ||
-        p === 'assets/img/liz.jpg' ||
-        p === 'assets/img/emily.jpg'
-      );
-    }
-
     async function loadPerson(){
       const params = new URLSearchParams(location.search);
       const id = (params.get('id') || '').trim();
@@ -258,7 +246,7 @@
         const img = document.getElementById('personPhoto');
         const noPhotoBox = document.getElementById('noPhotoBox');
 
-        if(hasRealPhoto(photo)){
+        if(photo){
           img.src = photo;
           img.alt = name;
           img.style.display = 'block';
