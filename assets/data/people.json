@@ -11,10 +11,11 @@
     "short_bio": "Thomas Montgomery is the principal investigator of the Montgomery Group at Duquesne University.",
     "bio": "Thomas Montgomery is the principal investigator of the Montgomery Group at Duquesne University."
   },
- {
+
+  {
     "id": "malu-satheesan-nair",
     "name": "Malu Satheesan Nair",
-    "role": "Current Group Member",
+    "role": "Graduate Student",
     "photo": "assets/img/Malu.jpg",
     "email": "",
     "links": {},
@@ -24,7 +25,7 @@
   {
     "id": "liz-colecchia",
     "name": "Liz Colecchia",
-    "role": "Current Group Member",
+    "role": "Graduate Student",
     "photo": "assets/img/Liz.jpg",
     "email": "",
     "links": {},
@@ -34,7 +35,7 @@
   {
     "id": "emily-vargo",
     "name": "Emily Vargo",
-    "role": "Current Group Member",
+    "role": "Graduate Student",
     "photo": "assets/img/Emily.jpg",
     "email": "",
     "links": {},
@@ -44,7 +45,7 @@
   {
     "id": "nick-frankos",
     "name": "Nick Frankos",
-    "role": "Current Group Member",
+    "role": "Graduate Student",
     "photo": "",
     "email": "",
     "links": {},
@@ -54,7 +55,7 @@
   {
     "id": "luke-forrester",
     "name": "Luke Forrester",
-    "role": "Current Group Member",
+    "role": "Graduate Student",
     "photo": "",
     "email": "",
     "links": {},
@@ -64,13 +65,55 @@
   {
     "id": "aiden-lane",
     "name": "Aiden Lane",
-    "role": "Current Group Member",
+    "role": "Graduate Student",
     "photo": "",
     "email": "",
     "links": {},
     "short_bio": "Joined the group in August 2022. Graduated with a BS from St. Mary's College of Maryland in 2022.",
     "bio": "Joined the group in August 2022. Graduated with BS in 2022 from St. Mary's College of Maryland."
   },
+
+  {
+    "id": "kayla-pugliese",
+    "name": "Kayla Pugliese",
+    "role": "Undergraduate Researcher",
+    "photo": "assets/img/Kayla.JPG",
+    "email": "",
+    "links": {},
+    "short_bio": "Joined the group in Spring 2025.",
+    "bio": "Kayla Pugliese joined the group in Spring 2025."
+  },
+  {
+    "id": "abbigail-black",
+    "name": "Abbigail Black",
+    "role": "Undergraduate Researcher",
+    "photo": "assets/img/Abbigail.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Joined the group in Fall 2024.",
+    "bio": "Abbigail Black joined the group in Fall 2024."
+  },
+  {
+    "id": "alayna-funke",
+    "name": "Alayna Funke",
+    "role": "Undergraduate Researcher",
+    "photo": "assets/img/Alayna.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Joined the group in Spring 2025.",
+    "bio": "Alayna Funke joined the group in Spring 2025."
+  },
+  {
+    "id": "josh-graber",
+    "name": "Josh Graber",
+    "role": "Undergraduate Researcher",
+    "photo": "assets/img/Josh.jpg",
+    "email": "",
+    "links": {},
+    "short_bio": "Joined the group in Spring 2024.",
+    "bio": "Josh Graber joined the group in Spring 2024."
+  },
+
   {
     "id": "sarah-hejnosz",
     "name": "Sarah Hejnosz",
