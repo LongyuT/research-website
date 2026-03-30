@@ -16,18 +16,22 @@
       text-decoration: none;
       color: inherit;
     }
+
     .person-name{
       color: var(--link);
     }
+
     .people-subtitle{
       font-size: 28px;
       font-weight: 800;
       margin: 28px 0 14px;
       color: var(--text);
     }
+
     .people-section{
       margin-bottom: 34px;
     }
+
     .person-photo{
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -38,12 +42,14 @@
       align-items: center;
       justify-content: center;
     }
+
     .person-photo img{
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
+
     .no-photo{
       width: 100%;
       height: 100%;
@@ -56,6 +62,7 @@
       font-size: 18px;
       background: #f3f4f6;
     }
+
     .error-box{
       padding: 14px;
       border: 1px solid var(--line);
@@ -102,8 +109,18 @@
       <div id="peopleError" class="error-box" style="display:none;"></div>
 
       <div class="people-section">
-        <h3 class="people-subtitle">Current Group Members</h3>
-        <div id="currentPeopleGrid" class="people-grid"></div>
+        <h3 class="people-subtitle">Principal Investigator</h3>
+        <div id="piGrid" class="people-grid"></div>
+      </div>
+
+      <div class="people-section">
+        <h3 class="people-subtitle">Graduate Students</h3>
+        <div id="graduateGrid" class="people-grid"></div>
+      </div>
+
+      <div class="people-section">
+        <h3 class="people-subtitle">Undergraduate Researchers</h3>
+        <div id="undergraduateGrid" class="people-grid"></div>
       </div>
 
       <div class="people-section">
@@ -125,7 +142,9 @@
   </footer>
 
   <script>
-    function safeText(s){ return (s ?? "").toString(); }
+    function safeText(s){
+      return (s ?? "").toString();
+    }
 
     function truncate(s, n){
       s = safeText(s).trim();
@@ -137,17 +156,6 @@
       const box = document.getElementById('peopleError');
       box.style.display = 'block';
       box.textContent = msg;
-    }
-
-    function hasRealPhoto(photo){
-      const p = safeText(photo).trim().toLowerCase();
-      if (!p) return false;
-      return (
-        p === 'assets/img/avatar.jpg' ||
-        p === 'assets/img/malu.jpg' ||
-        p === 'assets/img/liz.jpg' ||
-        p === 'assets/img/emily.jpg' 
-      );
     }
 
     function createCard(p){
@@ -163,7 +171,7 @@
       card.className = 'person-card';
       card.href = 'person.html?id=' + encodeURIComponent(id);
 
-      const photoHtml = hasRealPhoto(photoUrl)
+      const photoHtml = photoUrl
         ? `<div class="person-photo">
              <img src="${photoUrl}" alt="${name}" loading="lazy" />
            </div>`
@@ -184,10 +192,14 @@
     }
 
     async function loadPeople(){
-      const currentGrid = document.getElementById('currentPeopleGrid');
+      const piGrid = document.getElementById('piGrid');
+      const graduateGrid = document.getElementById('graduateGrid');
+      const undergraduateGrid = document.getElementById('undergraduateGrid');
       const formerGrid = document.getElementById('formerPeopleGrid');
 
-      currentGrid.innerHTML = "";
+      piGrid.innerHTML = "";
+      graduateGrid.innerHTML = "";
+      undergraduateGrid.innerHTML = "";
       formerGrid.innerHTML = "";
 
       try{
@@ -200,26 +212,29 @@
           return;
         }
 
-        const currentPeople = people.filter(p => safeText(p.role).includes("Current"));
-        const formerPeople = people.filter(p => safeText(p.role).includes("Former"));
-        const others = people.filter(p =>
-          !safeText(p.role).includes("Current") &&
-          !safeText(p.role).includes("Former")
-        );
+        const piPeople = people.filter(p => safeText(p.role).trim() === "Principal Investigator");
+        const graduatePeople = people.filter(p => safeText(p.role).trim() === "Graduate Student");
+        const undergraduatePeople = people.filter(p => safeText(p.role).trim() === "Undergraduate Researcher");
+        const formerPeople = people.filter(p => safeText(p.role).trim() === "Former Group Member");
 
-        for(const p of currentPeople){
+        for(const p of piPeople){
           const card = createCard(p);
-          if(card) currentGrid.appendChild(card);
+          if(card) piGrid.appendChild(card);
+        }
+
+        for(const p of graduatePeople){
+          const card = createCard(p);
+          if(card) graduateGrid.appendChild(card);
+        }
+
+        for(const p of undergraduatePeople){
+          const card = createCard(p);
+          if(card) undergraduateGrid.appendChild(card);
         }
 
         for(const p of formerPeople){
           const card = createCard(p);
           if(card) formerGrid.appendChild(card);
-        }
-
-        for(const p of others){
-          const card = createCard(p);
-          if(card) currentGrid.prepend(card);
         }
 
       }catch(e){
@@ -232,8 +247,3 @@
 
 </body>
 </html>
-
-
-
-
-
