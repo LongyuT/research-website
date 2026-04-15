@@ -100,5 +100,126 @@ window.PUBLICATIONS = [
       rsc: "https://pubs.rsc.org/en/content/articlelanding/2022/nj/d1nj05976a"
     },
   },
+
+  {
+  slug: "development-of-chiral-bifunctional-thiosquaramides-2017",
+  title: "Development of chiral, bifunctional thiosquaramides: enantioselective Michael additions of barbituric acids to nitroalkenes",
+  type: "Journal article",
+  authors: "M. Rombola, C. S. Sumaria, T. D. Montgomery, V. H. Rawal",
+  venue: "Journal of the American Chemical Society 139 (15), 5297-5300",
+  year: 2017,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "palladium-catalyzed-decarboxylative-allylation-and-benzylation-2013",
+  title: "Palladium-Catalyzed Decarboxylative Allylation and Benzylation of N-Alloc and N-Cbz Indoles",
+  type: "Journal article",
+  authors: "T. D. Montgomery, Y. Zhu, N. Kagawa, V. H. Rawal",
+  venue: "Organic Letters 15 (5), 1140-1143",
+  year: 2013,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "rapid-access-to-spirocyclized-indolenines-2014",
+  title: "Rapid access to spirocyclized indolenines via palladium-catalyzed cascade reactions of tryptamine derivatives and propargyl carbonate",
+  type: "Journal article",
+  authors: "T. D. Montgomery, A. E. Nibbs, Y. Zhu, V. H. Rawal",
+  venue: "Organic Letters 16 (13), 3480-3483",
+  year: 2014,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "access-to-spirocyclized-oxindoles-and-indolenines-2015",
+  title: "Access to Spirocyclized Oxindoles and Indolenines via Palladium-Catalyzed Cascade Reactions of Propargyl Carbonates with 2-Oxotryptamines and Tryptamines",
+  type: "Journal article",
+  authors: "A. E. Nibbs, T. D. Montgomery, Y. Zhu, V. H. Rawal",
+  venue: "The Journal of Organic Chemistry 80 (10), 4928-4941",
+  year: 2015,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "palladium-catalyzed-modular-synthesis-of-substituted-piperazines-2016",
+  title: "Palladium-catalyzed modular synthesis of substituted piperazines and related nitrogen heterocycles",
+  type: "Journal article",
+  authors: "T. D. Montgomery, V. H. Rawal",
+  venue: "Organic Letters 18 (4), 740-743",
+  year: 2016,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "the-scientific-method-as-a-scaffold-2022",
+  title: "The scientific method as a scaffold to enhance communication skills in chemistry",
+  type: "Journal article",
+  authors: "T. D. Montgomery, J. R. Buchbinder, E. S. Gawalt, R. J. Iuliucci, A. S. Koch, et al.",
+  venue: "Journal of Chemical Education 99 (6), 2338-2350",
+  year: 2022,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "multi-ion-bridged-pathway-of-n-oxides-2021",
+  title: "Multi-Ion Bridged Pathway of N-Oxides to 1,3-Dipole Dilithium Oxide Complexes",
+  type: "Journal article",
+  authors: "M. J. Neal, S. L. Hejnosz, J. J. Rohde, J. D. Evanseck, T. D. Montgomery",
+  venue: "The Journal of Organic Chemistry 86 (17), 11502-11518",
+  year: 2021,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "alpha-silyl-amides-effective-bifunctional-lynchpins-2017",
+  title: "α-Silyl Amides: Effective Bifunctional Lynchpins for Type I Anion Relay Chemistry",
+  type: "Journal article",
+  authors: "T. D. Montgomery, A. B. Smith III",
+  venue: "Organic Letters 19 (22), 6216-6219",
+  year: 2017,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "learning-from-a-pandemic-2023",
+  title: "Learning from a pandemic: Redesigning with universal design for learning to enhance scientific skills",
+  type: "Journal article",
+  authors: "T. D. Montgomery, M. Bridget",
+  venue: "Journal of Postsecondary Education and Disability",
+  year: 2023,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "3-2-cycloadditions-of-tertiary-amine-n-oxides-and-azoarenes-2025",
+  title: "[3 + 2] Cycloadditions of Tertiary Amine N-Oxides and Azoarenes as a Route to Substituted 1,2,4-Triazolidines",
+  type: "Journal article",
+  authors: "N. A. Frankos, M. S. Nair, A. M. Lane, M. M. Glista, J. K. Graber, A. E. F. Black, et al.",
+  venue: "ACS Organic & Inorganic Au",
+  year: 2025,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "studies-on-palladium-catalyzed-functionalization-of-indoles-2015",
+  title: "Studies on palladium catalyzed functionalization of indoles, synthesis of piperazines and rhodium catalyzed binol arylation",
+  type: "Thesis",
+  authors: "T. D. Montgomery",
+  venue: "The University of Chicago",
+  year: 2015,
+  abstract: "",
+  links: {}
+},
+{
+  slug: "nsf-chemistry-research-experience-for-undergraduate-students",
+  title: "NSF Chemistry Research Experience for Undergraduate Students (NSF-REU)",
+  type: "Other",
+  authors: "J. J. Rohde, M. Kanzelberger, J. D. Evanseck, T. D. Montgomery",
+  venue: "",
+  year: null,
+  abstract: "",
+  links: {}
+}
 ];
 
