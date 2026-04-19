@@ -10,11 +10,21 @@
 
   <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .error-box{
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff7f7;
+      color: #8a1f1f;
+      margin-bottom: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Header / Hero -->
   <header class="hero">
     <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
     <div class="hero-overlay"></div>
@@ -67,7 +77,10 @@
       el.style.display = "block";
       el.textContent = msg;
     }
-    function safeText(s){ return (s ?? "").toString(); }
+
+    function safeText(s){
+      return (s ?? "").toString();
+    }
 
     async function loadProjects(){
       const list = document.getElementById("projList");
@@ -75,12 +88,48 @@
 
       try{
         const res = await fetch("assets/data/projects.json", { cache: "no-store" });
-        if(!res.ok) throw new Error("projects.json 读取失败：" + res.status);
+        if(!res.ok) throw new Error("projects.json read failed: " + res.status);
+
         const projects = await res.json();
         if(!Array.isArray(projects) || projects.length === 0){
-          showError("没有找到项目数据（assets/data/projects.json 为空或格式不对）。");
+          showError("No project data found. assets/data/projects.json is empty or incorrectly formatted.");
           return;
         }
+
+        // ===== Lightbox =====
+        const lb = document.createElement("div");
+        lb.className = "lightbox";
+        lb.innerHTML = `
+          <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Image preview">
+            <button class="lightbox-close" aria-label="Close">✕</button>
+            <img class="lightbox-img" alt="Project image"/>
+          </div>
+        `;
+        document.body.appendChild(lb);
+
+        const lbImg = lb.querySelector(".lightbox-img");
+        const lbClose = lb.querySelector(".lightbox-close");
+
+        function openLightbox(src, alt){
+          lbImg.src = src;
+          lbImg.alt = alt || "Project image";
+          lb.classList.add("is-open");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox(){
+          lb.classList.remove("is-open");
+          lbImg.src = "";
+          document.body.style.overflow = "";
+        }
+
+        lb.addEventListener("click", function(e){
+          if(e.target === lb) closeLightbox();
+        });
+        lbClose.addEventListener("click", closeLightbox);
+        window.addEventListener("keydown", function(e){
+          if(e.key === "Escape") closeLightbox();
+        });
 
         projects.forEach(p => {
           const id = safeText(p.id).trim();
@@ -88,7 +137,7 @@
 
           const title = safeText(p.title) || "Untitled";
           const desc  = safeText(p.summary) || "";
-          const img   = safeText(p.image) || "assets/img/projects/placeholder.png";
+          const img   = safeText(p.image).trim();
 
           const row = document.createElement("div");
           row.className = "project-item";
@@ -97,10 +146,19 @@
             ? `<a href="${p.external_url}" target="_blank" rel="noopener">${title}</a>`
             : `<a href="project.html?id=${encodeURIComponent(id)}">${title}</a>`;
 
+          let imageHtml = "";
+          if(img){
+            imageHtml = `
+              <div class="project-img">
+                <button type="button" class="project-img-btn" aria-label="Open image preview">
+                  <img src="${img}" alt="${title}" loading="lazy">
+                </button>
+              </div>
+            `;
+          }
+
           row.innerHTML = `
-            <div class="project-img">
-              <img src="${img}" alt="${title}" loading="lazy">
-            </div>
+            ${imageHtml}
             <div class="project-text">
               <h3 class="project-title">${link}</h3>
               <p class="project-desc">${desc}</p>
@@ -108,27 +166,22 @@
           `;
 
           list.appendChild(row);
+
+          const btn = row.querySelector(".project-img-btn");
+          if(btn){
+            btn.addEventListener("click", function(){
+              openLightbox(img, title);
+            });
+          }
         });
 
       }catch(e){
-        showError("Projects page failed to load： " + e.message);
+        showError("Projects page failed to load: " + e.message);
       }
     }
 
     loadProjects();
   </script>
 
-  <style>
-    .error-box{
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #fff7f7;
-      color: #8a1f1f;
-      margin-bottom: 14px;
-    }
-  </style>
-
 </body>
 </html>
-
