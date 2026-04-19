@@ -10,6 +10,7 @@ window.PUBLICATIONS = [
       "M. Neal, Eric J. Chartier, Aiden M Lane, Sarah L Hejnosz, Luke T. Jesikiewicz, Peng Liu, Jeffrey J. Rohde, P. Lummis, Douglas J. Fox, J. Evanseck, Thomas D. Montgomery",
     venue: "Journal of Organic Chemistry, 2025",
     year: 2025,
+    image: "assets/img/pub1.png",
     abstract:
       "The physical model used to compute natural phenomena is crucial for accurate structural and mechanism elucidation. Specifically, we examine the mechanistic consequences of an explicit LDA dimer, THF, and N-oxide aggregate formation at the rate-limiting step for two competing reaction pathways involving nitrogen–oxygen dissociation and alpha-hydrogen deprotonation for azomethine ylide formation. We compute the free energies of activation using the M06-2x, B3LYP, and HCTH407 functionals and second-order Møller–Plesset perturbation theory with Dunning’s correlation consistent basis sets cc-pV[D,T]Z, and corrected entropy by using Whitesides’ free volume theory. Our discrete-continuum approach uses Tomasi’s polarizable continuum model to complement the quantum system by incorporating bulk solvent effects. Building off the LDA aggregation work developed by Collum and coworkers, we demonstrate that the explicit inclusion of solvent can have a profound impact on the predicted free energy barriers and alignment with experimental product distributions. In the polarized N-oxide system, the use of a more sophisticated and balanced model of the reaction mechanism underscores the importance of explicit solvent and the correct pattern of aggregation. Our results identify a unique aggregate that incorporates the N-oxide, THF, and LDA for azomethine ylide formation, which suggests a third dimension to the John Pople diagram to enhance the accuracy through model sophistication.",
     links: {
@@ -19,7 +20,30 @@ window.PUBLICATIONS = [
       pubmed: "https://pubmed.ncbi.nlm.nih.gov/40083234/",
       pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11915385/",
       pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11915385/"
-    },
+    }
+  },
+
+  {
+    slug: "3-2-cycloadditions-of-tertiary-amine-n-oxides-and-azoarenes-2025",
+    title:
+      "[3 + 2] Cycloadditions of Tertiary Amine N-Oxides and Azoarenes as a Route to Substituted 1,2,4-Triazolidines",
+    type: "Journal article",
+    authors:
+      "N. A. Frankos, M. S. Nair, A. M. Lane, M. M. Glista, J. K. Graber, A. E. F. Black, et al.",
+    venue: "ACS Organic & Inorganic Au, 2025",
+    year: 2025,
+    image:
+      "assets/img/3-2-cycloadditions-of-tertiary-amine-n-oxides-and-azoarenes-2025.png",
+    abstract:
+      "We have developed a synthesis of 29 novel 1,2,4-triazolidines using tertiary amine N-oxides and a wide range of substituted azoarenes. Our method utilizes a base-mediated [3 + 2] cycloaddition, starting from either commercially available or easily accessible precursors to generate triazolidines in yields up to 99%. Density functional theory calculations were performed in parallel to the experimental work to provide insights into the reactivity patterns and the overall mechanism. Finally, preliminary biological data are included on the antibacterial properties of these compounds.",
+    links: {
+      semantic_scholar:
+        "https://www.semanticscholar.org/paper/[3-%2B-2]-Cycloadditions-of-Tertiary-Amine-N%E2%80%91Oxides-a-Frankos-Nair/d1fd5281ad0db314fd05e6068d0f6eaa40dec03e",
+      doi: "https://pubs.acs.org/doi/full/10.1021/acsorginorgau.5c00098",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/41659002/",
+      pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12879182/",
+      pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12879182/"
+    }
   },
 
   {
@@ -31,6 +55,7 @@ window.PUBLICATIONS = [
       "Alexander H Cocolas, Aiden M Lane, Benjamin S Musiak, Eric J. Chartier, Derek A Bedillion, Sarah L Hejnosz, P. Lummis, J. Evanseck, Thomas D. Montgomery",
     venue: "Organic Letters, 2024",
     year: 2024,
+    image: "assets/img/pub2.png",
     abstract:
       "We have developed a diastereoselective synthesis of 43 novel 7-azanorbornanes using tertiary amine N-oxides and substituted alkenes. Our method uses an efficient [3 + 2] cycloaddition, starting from either commercially available or easily accessible precursors to generate yields up to 97% and diastereomeric ratios up to >20:1. Density functional theory (DFT) calculations were performed, suggesting that the observed diastereoselectivity is likely due to steric considerations.",
     links: {
@@ -40,7 +65,7 @@ window.PUBLICATIONS = [
       pubmed: "https://pubmed.ncbi.nlm.nih.gov/39038111/",
       pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11320637/",
       pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11320637/"
-    },
+    }
   },
 
   {
@@ -52,6 +77,7 @@ window.PUBLICATIONS = [
       "Sarah L Hejnosz, Danielle R. Beres, Alexander H Cocolas, M. Neal, Benjamin S Musiak, Marianne M B Hanna, A. Bloomfield, Thomas D. Montgomery",
     venue: "Organic Letters, 2023",
     year: 2023,
+    image: "assets/img/pub3.png",
     abstract:
       "We have developed a one-pot synthetic method for producing 1,2-diamines from easily prepared and commercially available precursors through a formal umpolung process. Our method utilizes an efficient [3 + 2] cycloaddition as the key step in forming substituted 1,2-diamines in moderate to high yields. These resulting compounds can undergo subsequent transformations, demonstrating their utility as synthetic building blocks for more complex scaffolds. Finally, we propose a reasonable mechanism for this transformation using density functional theory modeling, justifying the experimental observations.",
     links: {
@@ -61,7 +87,28 @@ window.PUBLICATIONS = [
       pubmed: "https://pubmed.ncbi.nlm.nih.gov/37318514/",
       pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10325142/",
       pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10325142/"
-    },
+    }
+  },
+
+  {
+    slug: "the-scientific-method-as-a-scaffold-2022",
+    title:
+      "The scientific method as a scaffold to enhance communication skills in chemistry",
+    type: "Journal article",
+    authors:
+      "T. D. Montgomery, J. R. Buchbinder, E. S. Gawalt, R. J. Iuliucci, A. S. Koch, et al.",
+    venue: "Journal of Chemical Education 99 (6), 2338-2350",
+    year: 2022,
+    image: "assets/img/the-scientific-method-as-a-scaffold-2022.gif",
+    abstract:
+      "Scientific success in the field of chemistry depends upon the mastery of a wide range of soft skills, most notably scientific writing and speaking. However, training for scientific communication is typically limited at the undergraduate level, where students struggle to express themselves in a clear and logical manner. The underlying issue is deeper than basic technical skills; rather, it is a problem of students' unawareness of a fundamental and strategic framework for writing and speaking with a purpose. The methodology has been implemented for individual mentorship and in our regional summer research program to deliver a blueprint of thought and reasoning that endows students with the confidence and skills to become more effective communicators. Our didactic process intertwines undergraduate research with the scientific method and is partitioned into six steps, referred to as \"phases\", to allow for focused and deep thinking on the essential components of the scientific method. The phases are designed to challenge the student in their zone of proximal development so they learn to extract and ultimately comprehend the elements of the scientific method through focused written and oral assignments. Students then compile their newly acquired knowledge to create a compelling and logical story, using their persuasive written and oral presentations to complete a research proposal, final report, and formal 20 min presentation. We find that such an approach delivers the necessary guidance to promote the logical framework that improves writing and speaking skills. Over the past decade, we have witnessed both qualitative and quantitative gains in the students' confidence in their abilities and skills (developed by this process), preparing them for future careers as young scientists.",
+    links: {
+      semantic_scholar:
+        "https://www.semanticscholar.org/paper/The-Scientific-Method-as-a-Scaffold-to-Enhance-in-Montgomery-Buchbinder/b09f0316da0f9ff6292c37c727f4c3d52d37a921",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/35722631/",
+      pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9202561/",
+      pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9202561/"
+    }
   },
 
   {
@@ -73,6 +120,7 @@ window.PUBLICATIONS = [
       "Aiden M Lane, Ny T. C. Luong, Jordan C. Kelly, M. Neal, Jeremiah Jamrom, A. Bloomfield, P. Lummis, Thomas D. Montgomery, Daniel T Chase",
     venue: "Molecules, 2022",
     year: 2022,
+    image: "assets/img/pub4.png",
     abstract:
       "A series of boron, aluminum, gallium, and indium chelates containing the underexplored bis(phenolate) aza-dipyrromethene (aza-DIPY) core were prepared. These compounds were found to possess near-infrared absorption and emission profiles in the 710 to 770 nm domain and exhibit quantum yield values up to 14%. X-ray diffraction analysis revealed that heavier group 13 bis(phenolate) aza-DIPY chelates possessed octahedral geometries with either THF or pyridine groups occupying the axial positions as opposed to the tetrahedral geometry of the boron chelate.",
     links: {
@@ -80,7 +128,7 @@ window.PUBLICATIONS = [
         "https://www.semanticscholar.org/paper/Synthetic-Exploration-of-Bis(phenolate)-Aza-BODIPYs-Lane-Luong/daf75449a056ddd409fa6e9a1911e890339d0646",
       doi: "https://doi.org/10.3390/molecules27238256",
       mdpi: "https://www.mdpi.com/1420-3049/27/23/8256"
-    },
+    }
   },
 
   {
@@ -91,6 +139,7 @@ window.PUBLICATIONS = [
       "Samuel R Zarcone, Hana J Yarbrough, M. Neal, Jordan C. Kelly, Katie Kaczynski, A. Bloomfield, G. Bowers, Thomas D. Montgomery, Daniel T Chase",
     venue: "New Journal of Chemistry, 2022",
     year: 2022,
+    image: "assets/img/pub5.png",
     abstract:
       "A series of ten electron deficient aza-BODIPYs were prepared through a facile nitration strategy where either one, two, or four nitro groups can be regioselectively attached which represents a novel synthetic transformation of the core structure. TD-DFT calculations also revealed that nitration on the 2- and 6-positions greatly stabilized both HOMO and LUMO energy levels by an average of 0.61 eV, resulting in average HOMO and LUMO energies of −4.46 eV and −6.44 eV, respectively. Moreover, preliminary studies suggested that nitrated aza-BODIPYs possess moderate to superior photostabilities when compared to their non-nitrated analogues. Combined, these data demonstrate that nitration of the 2- and 6-positions is a viable strategy in designing effective push–pull aza-BODIPYs with near-IR absorption and emission profiles.",
     links: {
@@ -98,128 +147,150 @@ window.PUBLICATIONS = [
         "https://www.semanticscholar.org/paper/Synthesis-and-Photophysical-Properties-of-Nitrated-Zarcone-Yarbrough/532f6e91c44f465f2763cb7d49243643325926f8",
       doi: "https://doi.org/10.1039/D1NJ05976A",
       rsc: "https://pubs.rsc.org/en/content/articlelanding/2022/nj/d1nj05976a"
-    },
+    }
   },
 
   {
-  slug: "development-of-chiral-bifunctional-thiosquaramides-2017",
-  title: "Development of chiral, bifunctional thiosquaramides: enantioselective Michael additions of barbituric acids to nitroalkenes",
-  type: "Journal article",
-  authors: "M. Rombola, C. S. Sumaria, T. D. Montgomery, V. H. Rawal",
-  venue: "Journal of the American Chemical Society 139 (15), 5297-5300",
-  year: 2017,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "palladium-catalyzed-decarboxylative-allylation-and-benzylation-2013",
-  title: "Palladium-Catalyzed Decarboxylative Allylation and Benzylation of N-Alloc and N-Cbz Indoles",
-  type: "Journal article",
-  authors: "T. D. Montgomery, Y. Zhu, N. Kagawa, V. H. Rawal",
-  venue: "Organic Letters 15 (5), 1140-1143",
-  year: 2013,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "rapid-access-to-spirocyclized-indolenines-2014",
-  title: "Rapid access to spirocyclized indolenines via palladium-catalyzed cascade reactions of tryptamine derivatives and propargyl carbonate",
-  type: "Journal article",
-  authors: "T. D. Montgomery, A. E. Nibbs, Y. Zhu, V. H. Rawal",
-  venue: "Organic Letters 16 (13), 3480-3483",
-  year: 2014,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "access-to-spirocyclized-oxindoles-and-indolenines-2015",
-  title: "Access to Spirocyclized Oxindoles and Indolenines via Palladium-Catalyzed Cascade Reactions of Propargyl Carbonates with 2-Oxotryptamines and Tryptamines",
-  type: "Journal article",
-  authors: "A. E. Nibbs, T. D. Montgomery, Y. Zhu, V. H. Rawal",
-  venue: "The Journal of Organic Chemistry 80 (10), 4928-4941",
-  year: 2015,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "palladium-catalyzed-modular-synthesis-of-substituted-piperazines-2016",
-  title: "Palladium-catalyzed modular synthesis of substituted piperazines and related nitrogen heterocycles",
-  type: "Journal article",
-  authors: "T. D. Montgomery, V. H. Rawal",
-  venue: "Organic Letters 18 (4), 740-743",
-  year: 2016,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "the-scientific-method-as-a-scaffold-2022",
-  title: "The scientific method as a scaffold to enhance communication skills in chemistry",
-  type: "Journal article",
-  authors: "T. D. Montgomery, J. R. Buchbinder, E. S. Gawalt, R. J. Iuliucci, A. S. Koch, et al.",
-  venue: "Journal of Chemical Education 99 (6), 2338-2350",
-  year: 2022,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "multi-ion-bridged-pathway-of-n-oxides-2021",
-  title: "Multi-Ion Bridged Pathway of N-Oxides to 1,3-Dipole Dilithium Oxide Complexes",
-  type: "Journal article",
-  authors: "M. J. Neal, S. L. Hejnosz, J. J. Rohde, J. D. Evanseck, T. D. Montgomery",
-  venue: "The Journal of Organic Chemistry 86 (17), 11502-11518",
-  year: 2021,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "alpha-silyl-amides-effective-bifunctional-lynchpins-2017",
-  title: "α-Silyl Amides: Effective Bifunctional Lynchpins for Type I Anion Relay Chemistry",
-  type: "Journal article",
-  authors: "T. D. Montgomery, A. B. Smith III",
-  venue: "Organic Letters 19 (22), 6216-6219",
-  year: 2017,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "learning-from-a-pandemic-2023",
-  title: "Learning from a pandemic: Redesigning with universal design for learning to enhance scientific skills",
-  type: "Journal article",
-  authors: "T. D. Montgomery, M. Bridget",
-  venue: "Journal of Postsecondary Education and Disability",
-  year: 2023,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "3-2-cycloadditions-of-tertiary-amine-n-oxides-and-azoarenes-2025",
-  title: "[3 + 2] Cycloadditions of Tertiary Amine N-Oxides and Azoarenes as a Route to Substituted 1,2,4-Triazolidines",
-  type: "Journal article",
-  authors: "N. A. Frankos, M. S. Nair, A. M. Lane, M. M. Glista, J. K. Graber, A. E. F. Black, et al.",
-  venue: "ACS Organic & Inorganic Au",
-  year: 2025,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "studies-on-palladium-catalyzed-functionalization-of-indoles-2015",
-  title: "Studies on palladium catalyzed functionalization of indoles, synthesis of piperazines and rhodium catalyzed binol arylation",
-  type: "Thesis",
-  authors: "T. D. Montgomery",
-  venue: "The University of Chicago",
-  year: 2015,
-  abstract: "",
-  links: {}
-},
-{
-  slug: "nsf-chemistry-research-experience-for-undergraduate-students",
-  title: "NSF Chemistry Research Experience for Undergraduate Students (NSF-REU)",
-  type: "Other",
-  authors: "J. J. Rohde, M. Kanzelberger, J. D. Evanseck, T. D. Montgomery",
-  venue: "",
-  year: null,
-  abstract: "",
-  links: {}
-}
-];
+    slug: "multi-ion-bridged-pathway-of-n-oxides-2021",
+    title:
+      "Multi-Ion Bridged Pathway of N-Oxides to 1,3-Dipole Dilithium Oxide Complexes",
+    type: "Journal article",
+    authors:
+      "M. J. Neal, S. L. Hejnosz, J. J. Rohde, J. D. Evanseck, T. D. Montgomery",
+    venue: "The Journal of Organic Chemistry 86 (17), 11502-11518",
+    year: 2021,
+    image: "assets/img/multi-ion-bridged-pathway-of-n-oxides-2021.gif",
+    abstract:
+      "Roussi's landmark work on the generation of 1,3-dipoles from tertiary amine N-oxides has not reached its full potential since its underlying mechanism is neither well explored nor understood. Two competing mechanisms were previously proposed to explain the transformation involving either an iminium ion or a diradical intermediate. Our investigation has revealed an alternative mechanistic pathway that explains experimental results and provides significant insights to guide the creation of new N-oxide reagents beyond tertiary alkylamines for direct synthetic transformations. Truhlar's M06-2x functional and Møller-Plesset second-order perturbation theory with Dunning's [jul,aug]-cc-pv[D,T]z basis sets and discrete-continuum solvation models were employed to determine activation enthalpies and structures. During these mechanistic explorations, we discovered a unique multi-ion bridged pathway resulting from the rate-determining step, which was energetically more favorable than other alternate mechanisms. This newly proposed mechanism contains no electrophilic intermediates, strengthening the reaction potential by broadening the reagent scope and limiting the possible side reactions. This thoroughly defined general mechanism supports a more direct route for improving the use of N-oxides in generating azomethine ylide-dilithium oxide complexes with expanded functional group tolerance and breadth of chemistry.",
+    links: {
+      semantic_scholar:
+        "https://www.semanticscholar.org/paper/Multi-Ion-Bridged-Pathway-of-N-Oxides-to-1%2C3-Dipole-Neal-Hejnosz/346bf39f4b2d55fc1004e25c84ae0e69bf5823ee",
+      doi: "https://pubs.acs.org/doi/10.1021/acs.joc.1c01047",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/34379424/"
+    }
+  },
 
+  {
+    slug: "development-of-chiral-bifunctional-thiosquaramides-2017",
+    title:
+      "Development of chiral, bifunctional thiosquaramides: enantioselective Michael additions of barbituric acids to nitroalkenes",
+    type: "Journal article",
+    authors: "M. Rombola, C. S. Sumaria, T. D. Montgomery, V. H. Rawal",
+    venue: "Journal of the American Chemical Society 139 (15), 5297-5300",
+    year: 2017,
+    image:
+      "assets/img/development-of-chiral-bifunctional-thiosquaramides-2017.gif",
+    abstract:
+      "We report a general method for the synthesis of chiral thiosquaramides, a class of bifunctional catalysts not previously described in the literature. Thiosquaramides are found to be more acidic and significantly more soluble in nonpolar solvents than their oxosquaramide counterparts, and they are excellent catalysts for the unreported, enantioselective conjugate addition reaction of the barbituric acid pharmacaphore to nitroalkenes, delivering the chiral barbiturate derivatives in high yields and high enantioselectivities, even with catalyst loadings as low as 0.05 mol%.",
+    links: {
+      semantic_scholar:
+        "https://www.semanticscholar.org/paper/Development-of-Chiral%2C-Bifunctional-Michael-of-to-Rombola-Sumaria/ab4ce58b8fbd9aaafa7b5f80bfe147bb36eb05f2",
+      doi: "https://pubs.acs.org/doi/10.1021/jacs.7b01115",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/28375610/"
+    }
+  },
+
+  {
+    slug: "alpha-silyl-amides-effective-bifunctional-lynchpins-2017",
+    title:
+      "α-Silyl Amides: Effective Bifunctional Lynchpins for Type I Anion Relay Chemistry",
+    type: "Journal article",
+    authors: "T. D. Montgomery, A. B. Smith III",
+    venue: "Organic Letters 19 (22), 6216-6219",
+    year: 2017,
+    image: "assets/img/alpha-silyl-amides-effective-bifunctional-lynchpins-2017.gif",
+    abstract:
+      "Lynchpins comprising α-silyl amides have been validated for type I anion relay chemistry (ARC) to permit ready access to γ-ketoamides. Importantly, the ARC protocol can be run at ambient temperature without the need of additional reagents to trigger the [1,4] Brook rearrangement.",
+    links: {
+      semantic_scholar:
+        "https://www.semanticscholar.org/paper/%CE%B1-Silyl-Amides%3A-Effective-Bifunctional-Lynchpins-I-Montgomery-Smith/e5e30e2067ea8a74940e8820522f4ce415376525",
+      doi: "https://pubs.acs.org/doi/10.1021/acs.orglett.7b03142",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/29120188/",
+      pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5712993/",
+      pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5712993/"
+    }
+  },
+
+  {
+    slug: "palladium-catalyzed-modular-synthesis-of-substituted-piperazines-2016",
+    title:
+      "Palladium-catalyzed modular synthesis of substituted piperazines and related nitrogen heterocycles",
+    type: "Journal article",
+    authors: "T. D. Montgomery, V. H. Rawal",
+    venue: "Organic Letters 18 (4), 740-743",
+    year: 2016,
+    image:
+      "assets/img/palladium-catalyzed-modular-synthesis-of-substituted-piperazines-2016.gif",
+    abstract:
+      "We report here a novel method for the modular synthesis of highly substituted piperazines and related bis-nitrogen heterocycles via a palladium-catalyzed cyclization reaction. The process couples two of the carbons of a propargyl unit with various diamine components to provide nitrogen heterocycles in generally good to excellent yields and high regio- and stereochemical control.",
+    links: {
+      doi: "https://pubs.acs.org/doi/10.1021/ol400334u",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/26824482/",
+      pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4991562/",
+      pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4991562/"
+    }
+  },
+
+  {
+    slug: "access-to-spirocyclized-oxindoles-and-indolenines-2015",
+    title:
+      "Access to Spirocyclized Oxindoles and Indolenines via Palladium-Catalyzed Cascade Reactions of Propargyl Carbonates with 2-Oxotryptamines and Tryptamines",
+    type: "Journal article",
+    authors: "A. E. Nibbs, T. D. Montgomery, Y. Zhu, V. H. Rawal",
+    venue: "The Journal of Organic Chemistry 80 (10), 4928-4941",
+    year: 2015,
+    image:
+      "assets/img/access-to-spirocyclized-oxindoles-and-indolenines-2015.gif",
+    abstract:
+      "Reported here are methods for the direct construction of a range of spirocyclized oxindoles and indolenines in good to excellent yields. Specifically, we report the palladium-catalyzed reactions of oxindoles and indoles, both functioning as bis-nucleophiles, with propargyl carbonates to afford spirocyclic products having an exocyclic double bond on the newly formed ring. The reaction proceeds through a process wherein the first nucleophilic unit on the oxindole or indole reacts with an allenyl-palladium species, formed from oxidative addition of Pd(0) to propargyl carbonates, to generate a π-allyl palladium intermediate that then reacts further with the second nucleophilic component of the oxindole or indole. The cascade process forges two bonds en route to spirocyclized oxindole and indolenine products. The use of chiral phosphines renders the cyclization sequence enantioselective, providing spirocyclic products with modest to good enantioselectivities.",
+    links: {
+      semantic_scholar:
+        "https://www.semanticscholar.org/paper/Access-to-Spirocyclized-Oxindoles-and-Indolenines-Nibbs-Montgomery/6daaf645572ba3e1ecbef78de28884768e60366f",
+      doi: "https://pubs.acs.org/doi/10.1021/acs.joc.5b00277",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/25876139/"
+    }
+  },
+
+  {
+    slug: "rapid-access-to-spirocyclized-indolenines-2014",
+    title:
+      "Rapid access to spirocyclized indolenines via palladium-catalyzed cascade reactions of tryptamine derivatives and propargyl carbonate",
+    type: "Journal article",
+    authors: "T. D. Montgomery, A. E. Nibbs, Y. Zhu, V. H. Rawal",
+    venue: "Organic Letters 16 (13), 3480-3483",
+    year: 2014,
+    image: "assets/img/rapid-access-to-spirocyclized-indolenines-2014.gif",
+    abstract:
+      "We report the intermolecular palladium-catalyzed reaction of tert-butyl propargyl carbonate with tryptamine derivatives or other indole-containing bis-nucleophiles. The reaction proceeds under mild conditions and with low catalyst loadings to afford novel spiroindolenine products in good to high yields.",
+    links: {
+      semantic_scholar:
+        "https://www.semanticscholar.org/paper/Rapid-Access-to-Spirocyclized-Indolenines-via-of-Montgomery-Nibbs/223e1c262e9b5af50e1bd0448ed56bc017f41df7",
+      doi: "https://pubs.acs.org/doi/10.1021/ol501409a",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/24964382/",
+      pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4096211/",
+      pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4096211/"
+    }
+  },
+
+  {
+    slug: "palladium-catalyzed-decarboxylative-allylation-and-benzylation-2013",
+    title:
+      "Palladium-Catalyzed Decarboxylative Allylation and Benzylation of N-Alloc and N-Cbz Indoles",
+    type: "Journal article",
+    authors: "T. D. Montgomery, Y. Zhu, N. Kagawa, V. H. Rawal",
+    venue: "Organic Letters 15 (5), 1140-1143",
+    year: 2013,
+    image:
+      "assets/img/palladium-catalyzed-decarboxylative-allylation-and-benzylation-2013.gif",
+    abstract:
+      "A set of general methods for the palladium-catalyzed decarboxylative C3-allylation and C3-benzylation of indoles, starting from the corresponding N-alloc and N-Cbz indoles, respectively, is reported. This chemistry provides ready access to a wide range of functionalized indolenines in good to excellent yields. A tandem process, wherein the palladium catalyzed allylation chemistry is coupled with a Mizoroki-Heck reaction, offers a simple route to cinnamylated products.",
+    links: {
+      semantic_scholar:
+        "https://www.semanticscholar.org/paper/Palladium-catalyzed-decarboxylative-allylation-and-Montgomery-Zhu/306ec6df962edd85763433f7af41c6b4b3293c27",
+      doi: "https://pubs.acs.org/doi/10.1021/ol400334u",
+      pubmed: "https://pubmed.ncbi.nlm.nih.gov/23427905/",
+      pmc: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3980966/",
+      pubmedcentral: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3980966/"
+    }
+  }
+];
