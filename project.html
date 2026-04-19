@@ -49,7 +49,7 @@
         <h2 id="projTitle" class="pub-detail-title"></h2>
 
         <div class="project-detail">
-          <div class="project-detail-img">
+          <div id="projImageWrap" class="project-detail-img" style="display:none;">
             <img id="projImg" src="" alt="">
           </div>
 
@@ -107,6 +107,7 @@
       display:block;
       box-shadow: 0 10px 25px rgba(0,0,0,.12);
       background:#f1f1f1;
+      border-radius: 12px;
     }
     @media (max-width: 900px){
       .project-detail{ grid-template-columns: 1fr; }
