@@ -9,6 +9,8 @@
   const venueEl = document.getElementById("pub-venue");
   const buttonsEl = document.getElementById("pub-buttons");
   const abstractEl = document.getElementById("pub-abstract");
+  const imageWrapEl = document.getElementById("pub-image-wrap");
+  const imageEl = document.getElementById("pub-image");
 
   if (!slug) {
     titleEl.textContent = "Publication not found";
@@ -24,14 +26,13 @@
     return;
   }
 
-  document.title = pub.title + " | Montgomery Group";
+  document.title = (pub.title || "Publication") + " | Montgomery Group";
 
   titleEl.textContent = pub.title || "";
   typeEl.textContent = pub.type || "";
   authorsEl.textContent = pub.authors || "";
   venueEl.textContent = pub.venue || "";
 
-  // Buttons: 兼容 pubmedcentral / pmc
   const pubmedcentral = pub.links?.pubmedcentral || pub.links?.pmc;
 
   const linkMap = [
@@ -53,6 +54,14 @@
     a.rel = "noopener";
     buttonsEl.appendChild(a);
   });
+
+  if (pub.image) {
+    imageEl.src = pub.image;
+    imageEl.alt = pub.title || "Publication figure";
+    imageWrapEl.style.display = "block";
+  } else {
+    imageWrapEl.style.display = "none";
+  }
 
   abstractEl.innerHTML = pub.abstract
     ? `<p>${escapeHtml(pub.abstract).replace(/\n/g, "<br/>")}</p>`
