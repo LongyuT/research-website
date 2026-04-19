@@ -7,6 +7,7 @@
   const wrapEl = document.getElementById("projWrap");
   const titleEl = document.getElementById("projTitle");
   const imgEl = document.getElementById("projImg");
+  const imageWrapEl = document.getElementById("projImageWrap");
   const linksEl = document.getElementById("projLinks");
   const bodyEl = document.getElementById("projBody");
 
@@ -31,26 +32,33 @@
 
   fetch("assets/data/projects.json", { cache: "no-store" })
     .then(res => {
-      if(!res.ok) throw new Error("projects.json 读取失败：" + res.status);
+      if(!res.ok) throw new Error("projects.json read failed: " + res.status);
       return res.json();
     })
     .then(projects => {
-      const p = Array.isArray(projects) ? projects.find(x => (x.id||"").trim() === id) : null;
+      const p = Array.isArray(projects)
+        ? projects.find(x => (x.id || "").trim() === id)
+        : null;
+
       if(!p){
         showError("Project not found: " + id);
         return;
       }
 
       const title = p.title || "Untitled";
-      const img = p.image || "assets/img/projects/placeholder.png";
+      const img = (p.image || "").trim();
 
       document.title = title + " | Montgomery Group";
       titleEl.textContent = title;
 
-      imgEl.src = img;
-      imgEl.alt = title;
+      if(img){
+        imgEl.src = img;
+        imgEl.alt = title;
+        imageWrapEl.style.display = "block";
+      } else {
+        imageWrapEl.style.display = "none";
+      }
 
-      // buttons (optional)
       linksEl.innerHTML = "";
       const btns = [];
 
@@ -68,16 +76,19 @@
         linksEl.appendChild(a);
       });
 
-      // body (plain text -> paragraphs)
       const full = (p.description || p.summary || "").trim();
       if(!full){
         bodyEl.innerHTML = "<p class='muted'>No description available.</p>";
       }else{
-        bodyEl.innerHTML = "<p>" + escapeHtml(full).replace(/\n\s*\n/g, "</p><p>").replace(/\n/g, "<br>") + "</p>";
+        bodyEl.innerHTML =
+          "<p>" +
+          escapeHtml(full)
+            .replace(/\n\s*\n/g, "</p><p>")
+            .replace(/\n/g, "<br>") +
+          "</p>";
       }
 
       wrapEl.style.display = "block";
     })
-    .catch(e => showError("加载 Project 页面失败： " + e.message));
+    .catch(e => showError("Failed to load Project page: " + e.message));
 })();
-
