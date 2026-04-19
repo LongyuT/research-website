@@ -10,6 +10,25 @@
 
   <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .pub-detail-image-wrap{
+      margin: 18px 0 22px;
+      display: none;
+    }
+
+    .pub-detail-image{
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
+    }
+  </style>
 </head>
 
 <body>
@@ -21,7 +40,7 @@
     <div class="hero-inner">
       <nav class="nav">
         <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="publications.html">Publications</a>
+        <a class="nav-link active" href="publications.html">Publications</a>
         <a class="nav-link" href="people.html">People</a>
         <a class="nav-link" href="projects.html">Projects</a>
         <a class="nav-link" href="resources.html">Resources</a>
@@ -47,6 +66,10 @@
       <p id="pub-venue" class="pub-venue"></p>
 
       <div id="pub-buttons" class="pub-buttons"></div>
+
+      <div id="pub-image-wrap" class="pub-detail-image-wrap">
+        <img id="pub-image" class="pub-detail-image" src="" alt="Publication figure" />
+      </div>
 
       <h3 class="pub-subhead">Abstract</h3>
       <div id="pub-abstract" class="content"></div>
