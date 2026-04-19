@@ -61,150 +61,131 @@
 
   <script src="assets/js/publications-data.js"></script>
   <script>
-    (function(){
-      var root = document.getElementById("pubs-root");
-      var pubs = (window.PUBLICATIONS || []).slice();
+  (function(){
+    var root = document.getElementById("pubs-root");
+    var pubs = (window.PUBLICATIONS || []).slice();
 
-      pubs.sort(function(a,b){
-        return (b.year||0) - (a.year||0);
+    pubs.sort(function(a,b){
+      return (b.year||0) - (a.year||0);
+    });
+
+    var groups = {};
+    pubs.forEach(function(p){
+      var y = p.year || "Other";
+      if(!groups[y]) groups[y] = [];
+      groups[y].push(p);
+    });
+
+    var years = Object.keys(groups).sort(function(a,b){
+      if(a === "Other") return 1;
+      if(b === "Other") return -1;
+      return Number(b) - Number(a);
+    });
+
+    // ===== Lightbox DOM (create once) =====
+    var lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.innerHTML = `
+      <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="lightbox-close" aria-label="Close">✕</button>
+        <img class="lightbox-img" alt="Publication figure"/>
+      </div>
+    `;
+    document.body.appendChild(lb);
+
+    var lbImg = lb.querySelector(".lightbox-img");
+    var lbClose = lb.querySelector(".lightbox-close");
+
+    function openLightbox(src, alt){
+      lbImg.src = src;
+      lbImg.alt = alt || "Publication figure";
+      lb.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(){
+      lb.classList.remove("is-open");
+      lbImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    lb.addEventListener("click", function(e){
+      if(e.target === lb) closeLightbox();
+    });
+    lbClose.addEventListener("click", closeLightbox);
+    window.addEventListener("keydown", function(e){
+      if(e.key === "Escape") closeLightbox();
+    });
+
+    // ===== Render =====
+    years.forEach(function(y){
+      var h3 = document.createElement("div");
+      h3.className = "pub-year-title";
+      h3.textContent = y;
+      root.appendChild(h3);
+
+      var list = document.createElement("div");
+      list.className = "pub-list";
+      root.appendChild(list);
+
+      groups[y].forEach(function(p){
+        var item = document.createElement("article");
+        item.className = "pub-item";
+
+        var link = "publication.html?slug=" + encodeURIComponent(p.slug);
+
+        if(p.image){
+          var thumbWrap = document.createElement("div");
+          thumbWrap.className = "pub-thumb";
+
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.style.all = "unset";
+          btn.style.display = "block";
+          btn.style.cursor = "zoom-in";
+
+          var img = document.createElement("img");
+          img.src = p.image;
+          img.alt = "TOC graphic";
+          img.loading = "lazy";
+
+          btn.addEventListener("click", function(){
+            openLightbox(p.image, p.title);
+          });
+
+          btn.appendChild(img);
+          thumbWrap.appendChild(btn);
+          item.appendChild(thumbWrap);
+        }
+
+        var content = document.createElement("div");
+        content.className = "pub-content";
+
+        var title = document.createElement("h3");
+        title.className = "pub-title";
+
+        var a = document.createElement("a");
+        a.href = link;
+        a.textContent = p.title || "(Untitled)";
+        title.appendChild(a);
+
+        var authors = document.createElement("p");
+        authors.className = "pub-authors";
+        authors.textContent = p.authors || "";
+
+        var venue = document.createElement("p");
+        venue.className = "pub-venue";
+        venue.textContent = p.venue || "";
+
+        content.appendChild(title);
+        content.appendChild(authors);
+        content.appendChild(venue);
+
+        item.appendChild(content);
+        list.appendChild(item);
       });
-
-      // group by year
-      var groups = {};
-      pubs.forEach(function(p){
-        var y = p.year || "Other";
-        if(!groups[y]) groups[y] = [];
-        groups[y].push(p);
-      });
-
-      var years = Object.keys(groups).sort(function(a,b){
-        if(a === "Other") return 1;
-        if(b === "Other") return -1;
-        return Number(b) - Number(a);
-      });
-
-      var imageMap = {
-        "n-oxide-insertion-lda-2025": "assets/img/pub1.png",
-        "diastereoselective-3-2-2024": "assets/img/pub2.png",
-        "3-2-cycloadditions-2023": "assets/img/pub3.png",
-        "aza-bodipys-2022": "assets/img/pub4.png",
-        "nitrated-aza-bodipys-2022": "assets/img/pub5.png"
-
-      };
-
-      // ===== Lightbox DOM (create once) =====
-      var lb = document.createElement("div");
-      lb.className = "lightbox";
-      lb.innerHTML = `
-        <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Image preview">
-          <button class="lightbox-close" aria-label="Close">✕</button>
-          <img class="lightbox-img" alt="Publication figure"/>
-        </div>
-      `;
-      document.body.appendChild(lb);
-
-      var lbImg = lb.querySelector(".lightbox-img");
-      var lbClose = lb.querySelector(".lightbox-close");
-
-      function openLightbox(src, alt){
-        lbImg.src = src;
-        lbImg.alt = alt || "Publication figure";
-        lb.classList.add("is-open");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeLightbox(){
-        lb.classList.remove("is-open");
-        lbImg.src = "";
-        document.body.style.overflow = "";
-      }
-
-      lb.addEventListener("click", function(e){
-        if(e.target === lb) closeLightbox();
-      });
-      lbClose.addEventListener("click", closeLightbox);
-      window.addEventListener("keydown", function(e){
-        if(e.key === "Escape") closeLightbox();
-      });
-
-      // ===== Render =====
-      years.forEach(function(y){
-        var h3 = document.createElement("div");
-        h3.className = "pub-year-title";
-        h3.textContent = y;
-        root.appendChild(h3);
-
-        var list = document.createElement("div");
-        list.className = "pub-list";
-        root.appendChild(list);
-
-        groups[y].forEach(function(p){
-          var item = document.createElement("article");
-          item.className = "pub-item";
-
-          var link = "publication.html?slug=" + encodeURIComponent(p.slug);
-
-          // thumbnail (click => lightbox)
-          var imgPath = imageMap[p.slug];
-          if(imgPath){
-            var thumbWrap = document.createElement("div");
-            thumbWrap.className = "pub-thumb";
-
-            var btn = document.createElement("button");
-            btn.type = "button";
-            btn.style.all = "unset";
-            btn.style.display = "block";
-
-            var img = document.createElement("img");
-            img.src = imgPath;
-            img.alt = "TOC graphic";
-            img.loading = "lazy";
-
-            // fallback: png -> jpg
-            img.onerror = function(){
-              if(img.src.endsWith(".png")){
-                img.src = img.src.replace(".png", ".jpg");
-              }
-            };
-
-            btn.addEventListener("click", function(){
-              openLightbox(img.src, p.title);
-            });
-
-            btn.appendChild(img);
-            thumbWrap.appendChild(btn);
-            item.appendChild(thumbWrap);
-          }
-
-          // content
-          var content = document.createElement("div");
-          content.className = "pub-content";
-
-          var title = document.createElement("h3");
-          title.className = "pub-title";
-
-          var a = document.createElement("a");
-          a.href = link;
-          a.textContent = p.title || "(Untitled)";
-          title.appendChild(a);
-
-          var authors = document.createElement("p");
-          authors.className = "pub-authors";
-          authors.textContent = p.authors || "";
-
-          var venue = document.createElement("p");
-          venue.className = "pub-venue";
-          venue.textContent = p.venue || "";
-
-          content.appendChild(title);
-          content.appendChild(authors);
-          content.appendChild(venue);
-
-          item.appendChild(content);
-          list.appendChild(item);
-        });
-      });
-    })();
+    });
+  })();
   </script>
 </body>
 </html>
