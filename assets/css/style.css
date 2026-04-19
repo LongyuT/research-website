@@ -275,7 +275,6 @@ img{ max-width:100%; height:auto; display:block; }
 
 /* =========================
    Homepage recent publications
-   Fix weird layout on index page only
    ========================= */
 #recent-publications .pub-list{
   gap: 18px;
@@ -457,14 +456,21 @@ img{ max-width:100%; height:auto; display:block; }
   padding: 18px;
 }
 
+.project-img{
+  width: 230px;
+  height: 160px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #d7dbe2;
+  box-shadow: var(--shadow-soft);
+}
+
 .project-img img{
   width: 100%;
-  max-width: 230px;
-  height: auto;
-  border-radius: 14px;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid #d7dbe2;
-  background: #fff;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .project-title{
@@ -622,8 +628,10 @@ img{ max-width:100%; height:auto; display:block; }
     grid-template-columns: 1fr;
   }
 
-  .project-img img{
+  .project-img{
+    width: 100%;
     max-width: 360px;
+    height: 220px;
   }
 }
 
