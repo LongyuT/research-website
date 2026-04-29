@@ -59,133 +59,140 @@
     </div>
   </footer>
 
-  <script src="assets/js/publications-data.js"></script>
   <script>
-  (function(){
-    var root = document.getElementById("pubs-root");
-    var pubs = (window.PUBLICATIONS || []).slice();
+    (async function(){
+      var root = document.getElementById("pubs-root");
 
-    pubs.sort(function(a,b){
-      return (b.year||0) - (a.year||0);
-    });
+      try{
+        const res = await fetch("assets/data/publications.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("publications.json read failed: " + res.status);
 
-    var groups = {};
-    pubs.forEach(function(p){
-      var y = p.year || "Other";
-      if(!groups[y]) groups[y] = [];
-      groups[y].push(p);
-    });
+        var pubs = await res.json();
+        pubs = Array.isArray(pubs) ? pubs.slice() : [];
 
-    var years = Object.keys(groups).sort(function(a,b){
-      if(a === "Other") return 1;
-      if(b === "Other") return -1;
-      return Number(b) - Number(a);
-    });
+        pubs.sort(function(a,b){
+          return (b.year||0) - (a.year||0);
+        });
 
-    // ===== Lightbox DOM (create once) =====
-    var lb = document.createElement("div");
-    lb.className = "lightbox";
-    lb.innerHTML = `
-      <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Image preview">
-        <button class="lightbox-close" aria-label="Close">✕</button>
-        <img class="lightbox-img" alt="Publication figure"/>
-      </div>
-    `;
-    document.body.appendChild(lb);
+        var groups = {};
+        pubs.forEach(function(p){
+          var y = p.year || "Other";
+          if(!groups[y]) groups[y] = [];
+          groups[y].push(p);
+        });
 
-    var lbImg = lb.querySelector(".lightbox-img");
-    var lbClose = lb.querySelector(".lightbox-close");
+        var years = Object.keys(groups).sort(function(a,b){
+          if(a === "Other") return 1;
+          if(b === "Other") return -1;
+          return Number(b) - Number(a);
+        });
 
-    function openLightbox(src, alt){
-      lbImg.src = src;
-      lbImg.alt = alt || "Publication figure";
-      lb.classList.add("is-open");
-      document.body.style.overflow = "hidden";
-    }
+        var lb = document.createElement("div");
+        lb.className = "lightbox";
+        lb.innerHTML = `
+          <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Image preview">
+            <button class="lightbox-close" aria-label="Close">✕</button>
+            <img class="lightbox-img" alt="Publication figure"/>
+          </div>
+        `;
+        document.body.appendChild(lb);
 
-    function closeLightbox(){
-      lb.classList.remove("is-open");
-      lbImg.src = "";
-      document.body.style.overflow = "";
-    }
+        var lbImg = lb.querySelector(".lightbox-img");
+        var lbClose = lb.querySelector(".lightbox-close");
 
-    lb.addEventListener("click", function(e){
-      if(e.target === lb) closeLightbox();
-    });
-    lbClose.addEventListener("click", closeLightbox);
-    window.addEventListener("keydown", function(e){
-      if(e.key === "Escape") closeLightbox();
-    });
-
-    // ===== Render =====
-    years.forEach(function(y){
-      var h3 = document.createElement("div");
-      h3.className = "pub-year-title";
-      h3.textContent = y;
-      root.appendChild(h3);
-
-      var list = document.createElement("div");
-      list.className = "pub-list";
-      root.appendChild(list);
-
-      groups[y].forEach(function(p){
-        var item = document.createElement("article");
-        item.className = "pub-item";
-
-        var link = "publication.html?slug=" + encodeURIComponent(p.slug);
-
-        if(p.image){
-          var thumbWrap = document.createElement("div");
-          thumbWrap.className = "pub-thumb";
-
-          var btn = document.createElement("button");
-          btn.type = "button";
-          btn.style.all = "unset";
-          btn.style.display = "block";
-          btn.style.cursor = "zoom-in";
-
-          var img = document.createElement("img");
-          img.src = p.image;
-          img.alt = "TOC graphic";
-          img.loading = "lazy";
-
-          btn.addEventListener("click", function(){
-            openLightbox(p.image, p.title);
-          });
-
-          btn.appendChild(img);
-          thumbWrap.appendChild(btn);
-          item.appendChild(thumbWrap);
+        function openLightbox(src, alt){
+          lbImg.src = src;
+          lbImg.alt = alt || "Publication figure";
+          lb.classList.add("is-open");
+          document.body.style.overflow = "hidden";
         }
 
-        var content = document.createElement("div");
-        content.className = "pub-content";
+        function closeLightbox(){
+          lb.classList.remove("is-open");
+          lbImg.src = "";
+          document.body.style.overflow = "";
+        }
 
-        var title = document.createElement("h3");
-        title.className = "pub-title";
+        lb.addEventListener("click", function(e){
+          if(e.target === lb) closeLightbox();
+        });
+        lbClose.addEventListener("click", closeLightbox);
+        window.addEventListener("keydown", function(e){
+          if(e.key === "Escape") closeLightbox();
+        });
 
-        var a = document.createElement("a");
-        a.href = link;
-        a.textContent = p.title || "(Untitled)";
-        title.appendChild(a);
+        years.forEach(function(y){
+          var h3 = document.createElement("div");
+          h3.className = "pub-year-title";
+          h3.textContent = y;
+          root.appendChild(h3);
 
-        var authors = document.createElement("p");
-        authors.className = "pub-authors";
-        authors.textContent = p.authors || "";
+          var list = document.createElement("div");
+          list.className = "pub-list";
+          root.appendChild(list);
 
-        var venue = document.createElement("p");
-        venue.className = "pub-venue";
-        venue.textContent = p.venue || "";
+          groups[y].forEach(function(p){
+            var item = document.createElement("article");
+            item.className = "pub-item";
 
-        content.appendChild(title);
-        content.appendChild(authors);
-        content.appendChild(venue);
+            var link = "publication.html?slug=" + encodeURIComponent(p.slug);
 
-        item.appendChild(content);
-        list.appendChild(item);
-      });
-    });
-  })();
+            if(p.image){
+              var thumbWrap = document.createElement("div");
+              thumbWrap.className = "pub-thumb";
+
+              var btn = document.createElement("button");
+              btn.type = "button";
+              btn.style.all = "unset";
+              btn.style.display = "block";
+              btn.style.cursor = "zoom-in";
+
+              var img = document.createElement("img");
+              img.src = p.image;
+              img.alt = "TOC graphic";
+              img.loading = "lazy";
+
+              btn.addEventListener("click", function(){
+                openLightbox(p.image, p.title);
+              });
+
+              btn.appendChild(img);
+              thumbWrap.appendChild(btn);
+              item.appendChild(thumbWrap);
+            }
+
+            var content = document.createElement("div");
+            content.className = "pub-content";
+
+            var title = document.createElement("h3");
+            title.className = "pub-title";
+
+            var a = document.createElement("a");
+            a.href = link;
+            a.textContent = p.title || "(Untitled)";
+            title.appendChild(a);
+
+            var authors = document.createElement("p");
+            authors.className = "pub-authors";
+            authors.textContent = p.authors || "";
+
+            var venue = document.createElement("p");
+            venue.className = "pub-venue";
+            venue.textContent = p.venue || "";
+
+            content.appendChild(title);
+            content.appendChild(authors);
+            content.appendChild(venue);
+
+            item.appendChild(content);
+            list.appendChild(item);
+          });
+        });
+
+      }catch(e){
+        root.innerHTML = "<p>Failed to load publications: " + e.message + "</p>";
+      }
+    })();
   </script>
 </body>
 </html>
