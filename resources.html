@@ -10,6 +10,49 @@
 
   <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .error-box{
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff7f7;
+      color: #8a1f1f;
+      margin-bottom: 14px;
+    }
+
+    .resources-list{
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    .resource-item{
+      background: var(--panel-2);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+
+    .resource-title{
+      margin: 0 0 8px;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .resource-title a{
+      color: var(--link);
+      text-decoration: underline;
+    }
+
+    .resource-desc{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+  </style>
 </head>
 
 <body>
@@ -44,15 +87,8 @@
       <h2 class="section-title">Resources</h2>
       <div class="divider"></div>
 
-      <div class="content">
-        <ul>
-          <li>
-            <a href="https://pubs.acs.org/doi/10.1021/om100106e" target="_blank" rel="noopener">
-              NMR Solvent Peaks
-            </a>
-          </li>
-        </ul>
-      </div>
+      <div id="resError" class="error-box" style="display:none;"></div>
+      <div id="resList" class="resources-list"></div>
     </section>
   </main>
 
@@ -66,6 +102,79 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function showError(msg){
+      const el = document.getElementById("resError");
+      el.style.display = "block";
+      el.textContent = msg;
+    }
+
+    function safeText(v){
+      return (v ?? "").toString().trim();
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    async function loadResources(){
+      const list = document.getElementById("resList");
+      list.innerHTML = "";
+
+      try{
+        const res = await fetch("assets/data/resources.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("resources.json read failed: " + res.status);
+
+        const items = await res.json();
+
+        if(!Array.isArray(items) || items.length === 0){
+          list.innerHTML = "<div class='muted' style='text-align:center;'>No resources yet.</div>";
+          return;
+        }
+
+        items.forEach(r => {
+          const title = safeText(r.title || r.name || r.resource_title);
+          const url = safeText(r.url || r.link);
+          const desc = safeText(r.description || r.note || r.short_note);
+
+          if(!title && !url) return;
+
+          const row = document.createElement("div");
+          row.className = "resource-item";
+
+          let titleHtml = "";
+          if(url){
+            titleHtml = `<h3 class="resource-title"><a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(title || url)}</a></h3>`;
+          }else{
+            titleHtml = `<h3 class="resource-title">${escapeHtml(title)}</h3>`;
+          }
+
+          let descHtml = "";
+          if(desc){
+            descHtml = `<p class="resource-desc">${escapeHtml(desc)}</p>`;
+          }
+
+          row.innerHTML = titleHtml + descHtml;
+          list.appendChild(row);
+        });
+
+        if(!list.children.length){
+          list.innerHTML = "<div class='muted' style='text-align:center;'>No resources yet.</div>";
+        }
+
+      }catch(e){
+        showError("Failed to load the Resources page: " + e.message);
+      }
+    }
+
+    loadResources();
+  </script>
 
 </body>
 </html>
