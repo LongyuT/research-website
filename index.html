@@ -128,43 +128,72 @@
     </div>
   </footer>
 
-  <!-- DATA + RENDER -->
-  <script src="assets/js/publications-data.js"></script>
   <script>
-    (function () {
+    (async function () {
       var listEl = document.getElementById("recent-pub-list");
       if (!listEl) return;
 
-      var pubs = (window.PUBLICATIONS || []).slice().sort(function(a,b){
-        return (b.year||0) - (a.year||0);
-      }).slice(0, 5);
+      try{
+        const res = await fetch("assets/data/publications.json", { cache: "no-store" });
+        if(!res.ok) throw new Error("publications.json read failed: " + res.status);
 
-      pubs.forEach(function (p) {
-        var item = document.createElement("article");
-        item.className = "pub-item";
+        var pubs = await res.json();
+        pubs = Array.isArray(pubs) ? pubs.slice() : [];
 
-        var h3 = document.createElement("h3");
-        h3.className = "pub-title";
+        pubs.sort(function(a,b){
+          return (b.year||0) - (a.year||0);
+        });
 
-        var a = document.createElement("a");
-        a.href = "publication.html?slug=" + encodeURIComponent(p.slug);
-        a.textContent = p.title;
+        pubs = pubs.slice(0, 5);
 
-        h3.appendChild(a);
+        pubs.forEach(function (p) {
+          var item = document.createElement("article");
+          item.className = "pub-item";
 
-        var authors = document.createElement("p");
-        authors.className = "pub-authors";
-        authors.textContent = p.authors || "";
+          if (p.image) {
+            var thumb = document.createElement("div");
+            thumb.className = "pub-thumb";
 
-        var venue = document.createElement("p");
-        venue.className = "pub-venue";
-        venue.textContent = p.venue || "";
+            var img = document.createElement("img");
+            img.src = p.image;
+            img.alt = p.title || "Publication image";
+            img.loading = "lazy";
 
-        item.appendChild(h3);
-        item.appendChild(authors);
-        item.appendChild(venue);
-        listEl.appendChild(item);
-      });
+            thumb.appendChild(img);
+            item.appendChild(thumb);
+          }
+
+          var content = document.createElement("div");
+          content.className = "pub-content";
+
+          var h3 = document.createElement("h3");
+          h3.className = "pub-title";
+
+          var a = document.createElement("a");
+          a.href = "publication.html?slug=" + encodeURIComponent(p.slug);
+          a.textContent = p.title || "Untitled";
+
+          h3.appendChild(a);
+
+          var authors = document.createElement("p");
+          authors.className = "pub-authors";
+          authors.textContent = p.authors || "";
+
+          var venue = document.createElement("p");
+          venue.className = "pub-venue";
+          venue.textContent = p.venue || "";
+
+          content.appendChild(h3);
+          content.appendChild(authors);
+          content.appendChild(venue);
+
+          item.appendChild(content);
+          listEl.appendChild(item);
+        });
+
+      }catch(e){
+        listEl.innerHTML = "<p>Failed to load recent publications: " + e.message + "</p>";
+      }
     })();
   </script>
 
