@@ -327,10 +327,12 @@ If a new resource must be added, it is better to send:
 
 ## Example resource format
 
-```text
-Resource title: NMR Solvent Peaks
-Link: https://pubs.acs.org/doi/10.1021/om100106e
-Short note: Useful NMR reference.
+```json
+  {
+    "title": "NMR Solvent Peaks",
+    "url": "https://pubs.acs.org/doi/10.1021/om100106e",
+    "description": "Useful NMR reference."
+  }
 ```
 
 ---
