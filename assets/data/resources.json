@@ -1,8 +1,7 @@
-
 [
   {
-    "Resource title": "NMR Solvent Peaks",
-    "Link: https": "https://pubs.acs.org/doi/10.1021/om100106e",
-    "Short note": "Useful NMR reference."
+    "title": "NMR Solvent Peaks",
+    "url": "https://pubs.acs.org/doi/10.1021/om100106e",
+    "description": "Useful NMR reference."
   }
 ]
