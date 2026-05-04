@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Head: page metadata, title, favicon, and stylesheet links. -->
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,15 +13,18 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
+<!-- Body: visible page content starts here. -->
 <body>
 
   <!-- Header / Hero -->
-  <header class="hero">
+  <!-- Hero header: shared banner, navigation bar, and group title. -->
+<header class="hero">
     <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
-      <nav class="nav">
+      <!-- Navigation links: lets visitors move between the main website pages. -->
+<nav class="nav">
         <a class="nav-link active" href="index.html">Home</a>
         <a class="nav-link" href="publications.html">Publications</a>
         <a class="nav-link" href="people.html">People</a>
@@ -40,10 +44,12 @@
     </div>
   </header>
 
-  <main class="container">
+  <!-- Main content area: holds the unique content for this page. -->
+<main class="container">
 
     <!-- About -->
-    <section class="section">
+    <!-- About section: introduces the Montgomery Group. -->
+<section class="section">
       <h2 class="section-title">About</h2>
       <div class="divider"></div>
 
@@ -66,7 +72,8 @@
     </section>
 
     <!-- Recent Publications -->
-    <section class="section" id="recent-publications">
+    <!-- Recent Publications section: JavaScript loads the newest publications from JSON. -->
+<section class="section" id="recent-publications">
       <h2 class="section-title">Recent Publications</h2>
       <div class="divider"></div>
 
@@ -76,7 +83,8 @@
     </section>
 
     <!-- Contact -->
-    <section class="section" id="contact">
+    <!-- Contact section: shows professor and department contact information. -->
+<section class="section" id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="divider"></div>
 
@@ -117,7 +125,8 @@
 
   </main>
 
-  <footer class="footer">
+  <!-- Footer: copyright and privacy link shared across the site. -->
+<footer class="footer">
     <div class="container footer-inner">
       <div class="footer-row">
         <div class="footer-copy">&copy; 2026 Montgomery Group</div>
@@ -128,12 +137,15 @@
     </div>
   </footer>
 
-  <script>
+  <!-- Homepage JavaScript: loads recent publications into the homepage. -->
+<script>
+    // Immediately run this function when the homepage loads.
     (async function () {
       var listEl = document.getElementById("recent-pub-list");
       if (!listEl) return;
 
       try{
+        // Fetch the related JSON data without using browser cache.
         const res = await fetch("assets/data/publications.json", { cache: "no-store" });
         if(!res.ok) throw new Error("publications.json read failed: " + res.status);
 
