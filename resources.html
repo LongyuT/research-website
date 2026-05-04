@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Head: page metadata, title, favicon, and stylesheet links. -->
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +12,8 @@
   <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <style>
+  <!-- Page-specific CSS for the Resources page. -->
+<style>
     .error-box{
       padding: 14px;
       border: 1px solid var(--line);
@@ -55,14 +57,17 @@
   </style>
 </head>
 
+<!-- Body: visible page content starts here. -->
 <body>
 
-  <header class="hero">
+  <!-- Hero header: shared banner, navigation bar, and group title. -->
+<header class="hero">
     <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
-      <nav class="nav">
+      <!-- Navigation links: lets visitors move between the main website pages. -->
+<nav class="nav">
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="publications.html">Publications</a>
         <a class="nav-link" href="people.html">People</a>
@@ -82,8 +87,10 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="section">
+  <!-- Main content area: holds the unique content for this page. -->
+<main class="container">
+    <!-- Resources section: JavaScript loads resource links from resources.json. -->
+<section class="section">
       <h2 class="section-title">Resources</h2>
       <div class="divider"></div>
 
@@ -92,7 +99,8 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <!-- Footer: copyright and privacy link shared across the site. -->
+<footer class="footer">
     <div class="container footer-inner">
       <div class="footer-row">
         <div class="footer-copy">&copy; 2026 Montgomery Group</div>
@@ -103,17 +111,21 @@
     </div>
   </footer>
 
-  <script>
+  <!-- Page-specific JavaScript for loading and displaying resources. -->
+<script>
+    // Show an error message on the page if JSON loading fails.
     function showError(msg){
       const el = document.getElementById("resError");
       el.style.display = "block";
       el.textContent = msg;
     }
 
+    // Convert missing values into safe strings before displaying them.
     function safeText(v){
       return (v ?? "").toString().trim();
     }
 
+    // Escape HTML special characters to prevent broken layout or unsafe HTML injection.
     function escapeHtml(str){
       return String(str)
         .replaceAll("&","&amp;")
@@ -123,11 +135,13 @@
         .replaceAll("'","&#039;");
     }
 
+    // Load resource links from JSON and render them as cards.
     async function loadResources(){
       const list = document.getElementById("resList");
       list.innerHTML = "";
 
       try{
+        // Fetch the related JSON data without using browser cache.
         const res = await fetch("assets/data/resources.json", { cache: "no-store" });
         if(!res.ok) throw new Error("resources.json read failed: " + res.status);
 
@@ -138,6 +152,7 @@
           return;
         }
 
+        // Create one HTML card for each JSON item.
         items.forEach(r => {
           const title = safeText(r.title || r.name || r.resource_title);
           const url = safeText(r.url || r.link);
