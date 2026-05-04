@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Head: page metadata, title, favicon, and stylesheet links. -->
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,14 +13,17 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
+<!-- Body: visible page content starts here. -->
 <body>
 
-  <header class="hero">
+  <!-- Hero header: shared banner, navigation bar, and group title. -->
+<header class="hero">
     <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
-      <nav class="nav">
+      <!-- Navigation links: lets visitors move between the main website pages. -->
+<nav class="nav">
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link active" href="publications.html">Publications</a>
         <a class="nav-link" href="people.html">People</a>
@@ -39,8 +43,10 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="section">
+  <!-- Main content area: holds the unique content for this page. -->
+<main class="container">
+    <!-- Publications section: JavaScript loads all publications and groups them by year. -->
+<section class="section">
       <h2 class="section-title">Publications</h2>
       <div class="divider"></div>
 
@@ -48,7 +54,8 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <!-- Footer: copyright and privacy link shared across the site. -->
+<footer class="footer">
     <div class="container footer-inner">
       <div class="footer-row">
         <div class="footer-copy">&copy; 2026 Montgomery Group</div>
@@ -59,11 +66,14 @@
     </div>
   </footer>
 
-  <script>
+  <!-- Page-specific JavaScript for loading publications and image preview lightbox. -->
+<script>
+    // Immediately run this function when the publications page loads.
     (async function(){
       var root = document.getElementById("pubs-root");
 
       try{
+        // Fetch the related JSON data without using browser cache.
         const res = await fetch("assets/data/publications.json", { cache: "no-store" });
         if(!res.ok) throw new Error("publications.json read failed: " + res.status);
 
@@ -100,6 +110,7 @@
         var lbImg = lb.querySelector(".lightbox-img");
         var lbClose = lb.querySelector(".lightbox-close");
 
+        // Open the image preview and prevent the page behind it from scrolling.
         function openLightbox(src, alt){
           lbImg.src = src;
           lbImg.alt = alt || "Publication figure";
@@ -107,6 +118,7 @@
           document.body.style.overflow = "hidden";
         }
 
+        // Close the image preview and restore normal page scrolling.
         function closeLightbox(){
           lb.classList.remove("is-open");
           lbImg.src = "";
