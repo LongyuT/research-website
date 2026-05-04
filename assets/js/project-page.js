@@ -1,8 +1,11 @@
 // assets/js/project-page.js
+// This script loads one project detail page using the id in the URL.
 (function () {
+  // Read the project id from the URL query string.
   const params = new URLSearchParams(location.search);
   const id = (params.get("id") || "").trim();
 
+  // Store references to the HTML elements that will be updated by this script.
   const errEl = document.getElementById("projError");
   const wrapEl = document.getElementById("projWrap");
   const titleEl = document.getElementById("projTitle");
@@ -11,11 +14,13 @@
   const linksEl = document.getElementById("projLinks");
   const bodyEl = document.getElementById("projBody");
 
+  // Display an error message when the project cannot be loaded.
   function showError(msg){
     errEl.style.display = "block";
     errEl.textContent = msg;
   }
 
+  // Escape special characters before inserting text as HTML.
   function escapeHtml(str){
     return String(str)
       .replaceAll("&", "&amp;")
@@ -25,17 +30,20 @@
       .replaceAll("'", "&#039;");
   }
 
+  // Stop early if the page URL does not include a project id.
   if(!id){
     showError("Project not found (missing id). Use project.html?id=xxx");
     return;
   }
 
+  // Load project data from the JSON file without using cached data.
   fetch("assets/data/projects.json", { cache: "no-store" })
     .then(res => {
       if(!res.ok) throw new Error("projects.json read failed: " + res.status);
       return res.json();
     })
     .then(projects => {
+      // Find the project whose id matches the URL id.
       const p = Array.isArray(projects)
         ? projects.find(x => (x.id || "").trim() === id)
         : null;
@@ -48,9 +56,11 @@
       const title = p.title || "Untitled";
       const img = (p.image || "").trim();
 
+      // Update the browser title and main page title.
       document.title = title + " | Montgomery Group";
       titleEl.textContent = title;
 
+      // Show the project image only when the project has an image path.
       if(img){
         imgEl.src = img;
         imgEl.alt = title;
@@ -59,6 +69,7 @@
         imageWrapEl.style.display = "none";
       }
 
+      // Build the optional project buttons, such as website, paper, or GitHub links.
       linksEl.innerHTML = "";
       const btns = [];
 
@@ -76,6 +87,7 @@
         linksEl.appendChild(a);
       });
 
+      // Use the full description if available; otherwise use the shorter summary.
       const full = (p.description || p.summary || "").trim();
       if(!full){
         bodyEl.innerHTML = "<p class='muted'>No description available.</p>";
