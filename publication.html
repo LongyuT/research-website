@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Head: page metadata, title, favicon, and stylesheet links. -->
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +12,8 @@
   <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <style>
+  <!-- Page-specific CSS for the publication detail image. -->
+<style>
     .pub-detail-image-wrap{
       margin: 18px 0 22px;
       display: none;
@@ -31,14 +33,17 @@
   </style>
 </head>
 
+<!-- Body: visible page content starts here. -->
 <body>
 
-  <header class="hero">
+  <!-- Hero header: shared banner, navigation bar, and group title. -->
+<header class="hero">
     <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
-      <nav class="nav">
+      <!-- Navigation links: lets visitors move between the main website pages. -->
+<nav class="nav">
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link active" href="publications.html">Publications</a>
         <a class="nav-link" href="people.html">People</a>
@@ -58,8 +63,10 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="section">
+  <!-- Main content area: holds the unique content for this page. -->
+<main class="container">
+    <!-- Publication detail section: publication-page.js loads one publication based on the URL slug. -->
+<section class="section">
       <h2 id="pub-title" class="pub-detail-title">Loading...</h2>
       <p id="pub-type" class="muted"></p>
       <p id="pub-authors" class="pub-authors"></p>
@@ -76,7 +83,8 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <!-- Footer: copyright and privacy link shared across the site. -->
+<footer class="footer">
     <div class="container footer-inner">
       <div class="footer-row">
         <div class="footer-copy">&copy; 2026 Montgomery Group</div>
@@ -87,6 +95,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/publication-page.js"></script>
+  <!-- External JavaScript file that fills in this publication detail page. -->
+<script src="assets/js/publication-page.js"></script>
 </body>
 </html>
