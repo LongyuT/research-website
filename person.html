@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Head: page metadata, title, favicon, and stylesheet links. -->
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +12,8 @@
   <link rel="icon" type="image/x-icon" href="https://www.owlstown.com/favicon.ico" />
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <style>
+  <!-- Page-specific CSS for the individual person profile layout. -->
+<style>
     .back-link{
       display:inline-block;
       margin: 8px 0 18px;
@@ -115,14 +117,17 @@
   </style>
 </head>
 
+<!-- Body: visible page content starts here. -->
 <body>
 
-  <header class="hero">
+  <!-- Hero header: shared banner, navigation bar, and group title. -->
+<header class="hero">
     <div class="hero-bg" style="background-image:url('assets/img/banner.jpg');"></div>
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
-      <nav class="nav">
+      <!-- Navigation links: lets visitors move between the main website pages. -->
+<nav class="nav">
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="publications.html">Publications</a>
         <a class="nav-link active" href="people.html">People</a>
@@ -142,8 +147,10 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="section">
+  <!-- Main content area: holds the unique content for this page. -->
+<main class="container">
+    <!-- Person detail section: JavaScript loads one person based on the URL id. -->
+<section class="section">
       <a class="back-link" href="people.html">← Back to People</a>
 
       <div id="personError" class="error-box" style="display:none;"></div>
@@ -171,7 +178,8 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <!-- Footer: copyright and privacy link shared across the site. -->
+<footer class="footer">
     <div class="container footer-inner">
       <div class="footer-row">
         <div class="footer-copy">&copy; 2026 Montgomery Group</div>
@@ -182,17 +190,21 @@
     </div>
   </footer>
 
-  <script>
+  <!-- Page-specific JavaScript for loading one person profile. -->
+<script>
+    // Convert missing values into safe strings before displaying them.
     function safeText(s){
       return (s ?? "").toString();
     }
 
+    // Show an error message on the page if JSON loading fails.
     function showError(msg){
       const box = document.getElementById('personError');
       box.style.display = 'block';
       box.textContent = msg;
     }
 
+    // Create one profile link button, such as email, website, or ORCID.
     function pill(label, href){
       if(!href) return null;
 
@@ -209,6 +221,7 @@
       return a;
     }
 
+    // Read the id from the URL, find the matching person, and display the profile.
     async function loadPerson(){
       const params = new URLSearchParams(location.search);
       const id = (params.get('id') || '').trim();
@@ -219,6 +232,7 @@
       }
 
       try{
+        // Fetch the related JSON data without using browser cache.
         const res = await fetch('assets/data/people.json', { cache: 'no-store' });
         if(!res.ok) throw new Error("people.json read failed: " + res.status);
 
