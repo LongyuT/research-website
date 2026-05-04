@@ -1,9 +1,11 @@
+/* This stylesheet controls the shared visual design for the Montgomery Group website. */
 /* ==========================================================
    Montgomery Group - Unified Style
    style-A inspired theme
    dark edges + light content panels + clean academic layout
    ========================================================== */
 
+/* Theme variables: change these colors and sizes to update the whole site. */
 :root{
   --bg:#03122b;
   --panel:#e9e9eb;
@@ -18,6 +20,7 @@
   --radius:26px;
 }
 
+/* Global reset: makes element sizing easier to control. */
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; }
 
@@ -623,6 +626,7 @@ img{ max-width:100%; height:auto; display:block; }
   }
 }
 
+/* Responsive layout: adjusts the site for tablets and smaller screens. */
 @media (max-width: 900px){
   .project-item{
     grid-template-columns: 1fr;
@@ -675,6 +679,7 @@ img{ max-width:100%; height:auto; display:block; }
   }
 }
 
+/* Mobile layout: makes navigation and content fit narrow screens. */
 @media (max-width: 640px){
   .container{
     width: min(1200px, calc(100% - 24px));
